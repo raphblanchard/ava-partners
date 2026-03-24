@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>AvaPartners — Coaching &amp; Conseil en Transformation</title>
+  <meta name="description" content="AvaPartners, cabinet de coaching et conseil fondé par Alexia Honig et Claire de Procé-Blanchard. Accompagnement d'équipes, coaching individuel, ateliers CoDev et maillage professionnel." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://avapartners.fr/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://avapartners.fr/" />
+  <meta property="og:title" content="AvaPartners — Coaching &amp; Conseil en Transformation" />
+  <meta property="og:description" content="Un duo d'expertes de l'accompagnement au service des dynamiques de transformation." />
+  <meta property="og:image" content="https://avapartners.fr/assets/images/og-image.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+
+  <!-- Favicon (à ajouter) -->
+  <link rel="icon" type="image/png" href="assets/images/logo-a.png" />
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAVBAR
+       ===================================================================== -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <div class="navbar-inner">
+
+      <a href="#hero" class="navbar-logo" aria-label="AvaPartners — Accueil">
+        <img src="assets/images/logo-long.png" alt="AvaPartners" />
+      </a>
+
+      <ul class="navbar-links" role="list">
+        <li><a href="#interventions" data-nav="interventions">Nos interventions</a></li>
+        <li><a href="#qui-sommes-nous" data-nav="about">Qui sommes-nous&nbsp;?</a></li>
+        <li><a href="#valeurs" data-nav="values">Nos valeurs</a></li>
+        <li><a href="#manifesto" data-nav="manifesto">Manifesto</a></li>
+        <li><a href="#temoignages" data-nav="testimonials">Témoignages</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <button class="lang-toggle" aria-label="Changer la langue">EN</button>
+        <a href="#contact" class="navbar-cta" data-nav="cta">Contact</a>
+        <button class="burger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="#interventions" data-mob="interventions">Nos interventions</a>
+    <a href="#qui-sommes-nous" data-mob="about">Qui sommes-nous&nbsp;?</a>
+    <a href="#valeurs" data-mob="values">Nos valeurs</a>
+    <a href="#manifesto" data-mob="manifesto">Manifesto</a>
+    <a href="#temoignages" data-mob="testimonials">Témoignages</a>
+    <a href="#contact" data-mob="contact">Contact</a>
+    <div class="mobile-actions">
+      <button class="lang-toggle" aria-label="Changer la langue">EN</button>
+    </div>
+  </div>
+
+
+  <!-- =====================================================================
+       HERO
+       ===================================================================== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content container">
+
+      <div class="hero-header">
+        <span class="eyebrow" data-hero="eyebrow">Coaching · Conseil · Transformation</span>
+        <h1 class="hero-title" data-hero="title">
+          Un <em>duo</em> d'expertes de l'accompagnement<br>
+          au service des dynamiques de transformation
+        </h1>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-col-left">
+          <p class="body-text reveal" data-hero="col-left-p1"></p>
+          <p class="body-text reveal" style="margin-top: 16px;" data-hero="col-left-p2"></p>
+        </div>
+        <div class="hero-col-right">
+          <p class="body-text reveal" data-hero="col-right-p1"></p>
+          <p class="body-text reveal" style="margin-top: 16px;" data-hero="col-right-p2"></p>
+        </div>
+      </div>
+
+      <p class="hero-tagline reveal" data-hero="tagline"></p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       NOS INTERVENTIONS
+       ===================================================================== -->
+  <section id="interventions">
+    <div class="container">
+
+      <div class="reveal">
+        <h2 class="section-title" data-interventions="title">
+          Nos <em>interventions</em>
+        </h2>
+      </div>
+
+      <div class="tabs-interventions">
+        <div class="tabs-nav" role="tablist" aria-label="Types d'interventions">
+          <!-- Onglets injectés par lang.js -->
+        </div>
+        <div class="tabs-content">
+          <!-- Panneaux injectés par lang.js -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       QUI SOMMES-NOUS
+       ===================================================================== -->
+  <section id="qui-sommes-nous" class="alt-bg">
+    <div class="container">
+
+      <div class="reveal" style="text-align:center; margin-bottom: 16px;">
+        <h2 class="section-title" data-about="title">
+          Qui sommes <em>nous&nbsp;?</em>
+        </h2>
+      </div>
+
+      <p class="about-intro reveal" data-about="intro"></p>
+
+      <div class="profile-grid">
+
+        <!-- Alexia -->
+        <div class="profile-card reveal-left">
+          <img
+            class="profile-photo"
+            src="assets/images/alexia-honig.png"
+            alt="Alexia Honig"
+            loading="lazy"
+            data-about="alexia-photo"
+          />
+          <div class="profile-info">
+            <h3 data-about="alexia-name">Alexia Honig</h3>
+            <p data-about="alexia-bio"></p>
+            <div class="profile-links">
+              <a href="mailto:alexia@avapartners.fr" data-about="alexia-email">
+                alexia@avapartners.fr
+              </a>
+              <a href="https://www.linkedin.com/in/alexia-honig-6071851/" target="_blank" rel="noopener" data-about="alexia-linkedin">
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Claire -->
+        <div class="profile-card reveal-right">
+          <img
+            class="profile-photo"
+            src="assets/images/claire-proce-blanchard.png"
+            alt="Claire de Procé-Blanchard"
+            loading="lazy"
+            data-about="claire-photo"
+          />
+          <div class="profile-info">
+            <h3 data-about="claire-name">Claire de Procé-Blanchard</h3>
+            <p data-about="claire-bio"></p>
+            <div class="profile-links">
+              <a href="mailto:claire@avapartners.fr" data-about="claire-email">
+                claire@avapartners.fr
+              </a>
+              <a href="https://www.linkedin.com/in/claire-de-procé-blanchard/" target="_blank" rel="noopener" data-about="claire-linkedin">
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications -->
+      <div class="certifications-block reveal">
+        <span class="cert-label" data-about="cert-label">Nos certifications :</span>
+        <p data-about="certifications"></p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       NOS VALEURS
+       ===================================================================== -->
+  <section id="valeurs">
+    <div class="container">
+
+      <div class="reveal">
+        <h2 class="section-title" data-values="title">
+          Nos <em>valeurs</em>
+        </h2>
+        <p class="section-subtitle" data-values="subtitle"></p>
+      </div>
+
+      <div class="values-grid" data-values="grid">
+        <!-- Cards injectées par lang.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       MANIFESTO
+       ===================================================================== -->
+  <section id="manifesto">
+    <div class="manifesto-decor" aria-hidden="true"></div>
+    <div class="container">
+
+      <p class="manifesto-title reveal" data-manifesto="title">MANIFESTO</p>
+
+      <div class="manifesto-grid">
+        <div data-manifesto="col-left">
+          <!-- Injecté par lang.js -->
+        </div>
+        <div data-manifesto="col-right">
+          <!-- Injecté par lang.js -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       TÉMOIGNAGES
+       ===================================================================== -->
+  <section id="temoignages">
+    <div class="container">
+
+      <div class="reveal">
+        <h2 class="section-title" data-testimonials="title">
+          Nos clients <em>témoignent</em>
+        </h2>
+      </div>
+
+      <!-- Logos clients — défilement infini -->
+      <div class="testimonials-logos-track reveal" aria-hidden="true">
+        <div class="logos-marquee">
+          <img src="assets/images/logos/dior.png"     alt="Dior"     loading="lazy" />
+          <img src="assets/images/logos/clarins.png"  alt="Clarins"  loading="lazy" />
+          <img src="assets/images/logos/eiffage.png"  alt="Eiffage Concessions" loading="lazy" />
+          <img src="assets/images/logos/cdv.png"      alt="Cercle des Voyages"  loading="lazy" />
+          <img src="assets/images/logos/alisea.png"   alt="Alisea"   loading="lazy" />
+          <img src="assets/images/logos/chic.png"     alt="Agence Chic" loading="lazy" />
+          <img src="assets/images/logos/viquel.png"   alt="Viquel"   loading="lazy" />
+          <img src="assets/images/logos/onepoint.png" alt="Onepoint" loading="lazy" />
+          <img src="assets/images/logos/vap.png"      alt="VAP"      loading="lazy" />
+        </div>
+        <!-- Doublon pour boucle seamless -->
+        <div class="logos-marquee" aria-hidden="true">
+          <img src="assets/images/logos/dior.png"     alt="" loading="lazy" />
+          <img src="assets/images/logos/clarins.png"  alt="" loading="lazy" />
+          <img src="assets/images/logos/eiffage.png"  alt="" loading="lazy" />
+          <img src="assets/images/logos/cdv.png"      alt="" loading="lazy" />
+          <img src="assets/images/logos/alisea.png"   alt="" loading="lazy" />
+          <img src="assets/images/logos/chic.png"     alt="" loading="lazy" />
+          <img src="assets/images/logos/viquel.png"   alt="" loading="lazy" />
+          <img src="assets/images/logos/onepoint.png" alt="" loading="lazy" />
+          <img src="assets/images/logos/vap.png"      alt="" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Slider -->
+      <div class="slider-wrapper reveal">
+        <div class="slider-track">
+          <!-- Slides injectées par lang.js -->
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-btn slider-btn-prev" aria-label="Témoignage précédent">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="slider-dots" role="group" aria-label="Navigation témoignages">
+            <!-- Dots injectés par lang.js -->
+          </div>
+          <button class="slider-btn slider-btn-next" aria-label="Témoignage suivant">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       CONTACT
+       ===================================================================== -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-grid">
+
+        <!-- Bloc infos -->
+        <div class="contact-info">
+          <h2 data-contact="title">Contact</h2>
+
+          <div class="contact-person reveal">
+            <h3 data-contact="alexia-name">Alexia Honig</h3>
+            <a href="mailto:alexia@avapartners.fr" data-contact="alexia-email">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              alexia@avapartners.fr
+            </a>
+            <a href="https://www.linkedin.com/in/alexia-honig-6071851/" target="_blank" rel="noopener" data-contact="alexia-linkedin">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="contact-person reveal">
+            <h3 data-contact="claire-name">Claire de Procé-Blanchard</h3>
+            <a href="mailto:claire@avapartners.fr" data-contact="claire-email">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              claire@avapartners.fr
+            </a>
+            <a href="https://www.linkedin.com/in/claire-de-procé-blanchard/" target="_blank" rel="noopener" data-contact="claire-linkedin">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="contact-address">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span data-contact="address">75017 Paris</span>
+          </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="reveal-right">
+          <form
+            id="contact-form"
+            class="contact-form"
+            action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
+            method="POST"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstname">Prénom</label>
+                <input
+                  type="text"
+                  id="firstname"
+                  name="firstname"
+                  placeholder="Prénom"
+                  required
+                  data-form="firstname"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lastname">Nom</label>
+                <input
+                  type="text"
+                  id="lastname"
+                  name="lastname"
+                  placeholder="Nom"
+                  required
+                  data-form="lastname"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                data-form="email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Téléphone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Téléphone"
+                data-form="phone"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                required
+                rows="5"
+                data-form="message"
+              ></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary" data-form="submit">
+                ENVOYER
+              </button>
+            </div>
+
+            <div class="form-message" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <a href="#hero" class="footer-logo" aria-label="AvaPartners — Haut de page">
+        <img src="assets/images/logo-long.png" alt="AvaPartners" />
+      </a>
+
+      <nav class="footer-links" aria-label="Liens légaux">
+        <a href="#" data-footer="legal">Mentions Légales</a>
+        <a href="#" data-footer="privacy">Politique de Confidentialité</a>
+      </nav>
+
+      <p class="footer-copy" data-footer="copy">© 2025 AvaPartners. Tous droits réservés.</p>
+
+    </div>
+  </footer>
+
+
+  <!-- =====================================================================
+       SCRIPTS
+       ===================================================================== -->
+  <script type="module">
+    import { renderPage, initLangToggle } from './scripts/lang.js';
+    import { initScrollAnimations, initSlider } from './scripts/main.js';
+
+    // Rendre la page (injecte le contenu dynamique)
+    renderPage();
+
+    // Init animations APRÈS injection du contenu
+    // (initSlider est déclenché via reinit-slider depuis renderTestimonials)
+    initScrollAnimations();
+    initLangToggle();
+
+    // Ré-init animations après changement de langue
+    window.addEventListener('reinit-animations', () => {
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-fade, .reveal-scale')
+        .forEach(el => el.classList.remove('visible'));
+      initScrollAnimations();
+    });
+  </script>
+
+</body>
+</html>
