@@ -254,8 +254,7 @@
   font-weight: 300;
   font-style: italic;
   color: var(--color-text-mid);
-  padding-top: 32px;
-  border-top: 1px solid var(--color-border);
+  padding-top: 0;
   max-width: 640px;
 }
 
@@ -337,10 +336,10 @@
 }
 
 .tab-section p {
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 400;
   color: var(--color-text-mid);
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 8px;
 }
 
@@ -349,10 +348,10 @@
 }
 
 .tab-section ul li {
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 400;
   color: var(--color-text-mid);
-  line-height: 1.75;
+  line-height: 1.8;
   padding-left: 18px;
   position: relative;
   margin-bottom: 6px;
@@ -397,12 +396,12 @@
 }
 
 .profile-photo {
-  width: 160px;
+  width: 110px;
   flex-shrink: 0;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: top center;
-  border-radius: var(--radius-md);
+  border-radius: 50%;
   filter: grayscale(100%);
   transition: filter var(--transition-base);
 }
@@ -421,9 +420,9 @@
 
 .profile-info p {
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text-mid);
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 16px;
 }
 
@@ -449,7 +448,6 @@
 .certifications-block {
   background: rgba(139, 158, 148, 0.08);
   border-radius: var(--radius-md);
-  border-left: 3px solid var(--color-sage);
   padding: 16px 28px;
   text-align: center;
 }
@@ -475,6 +473,16 @@
 /* -----------------------------------------------------------------------
    VALEURS — Cards
    ----------------------------------------------------------------------- */
+#valeurs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#valeurs .container {
+  width: 100%;
+}
+
 .values-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -483,36 +491,48 @@
 }
 
 .value-card {
-  border: 1px solid var(--color-border);
+  background: var(--color-background-2);
+  border: none;
+  border-top: 3px solid var(--color-sage);
   border-radius: var(--radius-md);
   padding: 32px 24px;
   text-align: center;
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
 }
 
 .value-card:hover {
-  border-color: var(--color-border-hover);
-  transform: translateY(-4px);
+  border-top-color: var(--color-gold);
+  transform: translateY(-6px);
+  background: white;
+  box-shadow: 0 12px 40px rgba(26,26,24,0.10);
 }
 
 .value-card .gold-dot {
-  margin-bottom: 16px;
+  width: 28px;
+  height: 2px;
+  background: var(--color-sage);
+  border-radius: 1px;
+  margin: 0 auto 20px;
+}
+
+.value-card:hover .gold-dot {
+  background: var(--color-gold);
 }
 
 .value-card h3 {
   font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 300;
+  font-size: 19px;
+  font-weight: 400;
   font-style: italic;
   color: var(--color-text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .value-card p {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--color-text-light);
-  line-height: 1.65;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-mid);
+  line-height: 1.7;
 }
 
 /* -----------------------------------------------------------------------
@@ -522,6 +542,13 @@
   background-color: var(--color-background-2);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#manifesto .container {
+  width: 100%;
 }
 
 .manifesto-decor {
@@ -538,12 +565,11 @@
 }
 
 .manifesto-title {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-gold);
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.25;
+  color: var(--color-text-dark);
   margin-bottom: 56px;
 }
 
@@ -573,22 +599,32 @@
 }
 
 .manifesto-item p {
-  font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--color-text-mid);
-  line-height: 1.8;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  line-height: 1.85;
 }
 
 /* -----------------------------------------------------------------------
    TÉMOIGNAGES — Slider
    ----------------------------------------------------------------------- */
+#temoignages {
+  padding: 52px 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#temoignages .container {
+  width: 100%;
+}
+
 .testimonials-logos-track {
   overflow: hidden;
   display: flex;
-  margin-bottom: 40px;
-  padding-bottom: 32px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--color-border);
   /* Fondu sur les bords */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
@@ -637,26 +673,26 @@
 
 .slide {
   min-width: 100%;
-  padding: 0 80px;
+  padding: 0 40px;
 }
 
 .testimonial-card {
   background: var(--color-background);
   border: 1px solid rgba(201,168,76,0.2);
   border-radius: var(--radius-lg);
-  padding: 40px 48px;
+  padding: 28px 36px;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .testimonial-card blockquote {
   font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 400;
   font-style: italic;
-  color: var(--color-text-mid);
-  line-height: 1.8;
-  margin-bottom: 28px;
+  color: var(--color-text-dark);
+  line-height: 1.7;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -695,7 +731,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .slider-btn {

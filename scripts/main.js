@@ -125,6 +125,10 @@ function initTabs() {
 /* ==========================================================================
    SLIDER TÉMOIGNAGES
    ========================================================================== */
+// Persiste entre les réinitialisations (changement de langue)
+let _sliderUserInteracted = false;
+let _sliderAbortCtrl = null;
+
 function initSlider() {
   const slider = document.querySelector('.slider-wrapper');
   if (!slider) return;
@@ -137,6 +141,11 @@ function initSlider() {
 
   if (!track || slides.length === 0) return;
 
+  // Annule tous les anciens event listeners
+  if (_sliderAbortCtrl) _sliderAbortCtrl.abort();
+  _sliderAbortCtrl = new AbortController();
+  const sig = { signal: _sliderAbortCtrl.signal };
+
   let current = 0;
   let autoPlayTimer = null;
   const total = slides.length;
@@ -148,7 +157,7 @@ function initSlider() {
       const dot = document.createElement('button');
       dot.className = 'slider-dot';
       dot.setAttribute('aria-label', `Témoignage ${i + 1}`);
-      dot.addEventListener('click', () => goTo(i));
+      dot.addEventListener('click', () => goTo(i), sig);
       dotsContainer.appendChild(dot);
     });
   }
@@ -166,34 +175,47 @@ function initSlider() {
     });
   }
 
-  function startAutoPlay() {
-    autoPlayTimer = setInterval(() => goTo(current + 1), 6000);
-  }
-
   function stopAutoPlay() {
     clearInterval(autoPlayTimer);
+    autoPlayTimer = null;
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay(); // évite les timers en doublon
+    const interval = _sliderUserInteracted ? 30000 : 6000;
+    autoPlayTimer = setInterval(() => goTo(current + 1), interval);
   }
 
   // Boutons prev/next
-  if (btnPrev) btnPrev.addEventListener('click', () => { goTo(current - 1); stopAutoPlay(); startAutoPlay(); });
-  if (btnNext) btnNext.addEventListener('click', () => { goTo(current + 1); stopAutoPlay(); startAutoPlay(); });
+  if (btnPrev) btnPrev.addEventListener('click', () => {
+    _sliderUserInteracted = true;
+    goTo(current - 1);
+    startAutoPlay();
+  }, sig);
+  if (btnNext) btnNext.addEventListener('click', () => {
+    _sliderUserInteracted = true;
+    goTo(current + 1);
+    startAutoPlay();
+  }, sig);
 
   // Pause au survol
-  slider.addEventListener('mouseenter', stopAutoPlay);
-  slider.addEventListener('mouseleave', startAutoPlay);
+  slider.addEventListener('mouseenter', stopAutoPlay, sig);
+  slider.addEventListener('mouseleave', startAutoPlay, sig);
 
   // Swipe tactile
   let touchStartX = 0;
   slider.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
-  }, { passive: true });
+  }, { passive: true, signal: _sliderAbortCtrl.signal });
 
   slider.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
+      _sliderUserInteracted = true;
       goTo(diff > 0 ? current + 1 : current - 1);
+      startAutoPlay();
     }
-  }, { passive: true });
+  }, { passive: true, signal: _sliderAbortCtrl.signal });
 
   // Init
   goTo(0);
