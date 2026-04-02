@@ -123,44 +123,37 @@ function renderInterventions(interventions) {
 }
 
 function buildTabPanel(tab) {
-  let html = '<div class="tab-content-grid">';
-
-  // Colonne gauche
-  html += '<div class="tab-col-left">';
+  // Collecter toutes les sections dans un tableau
+  const sections = [];
 
   if (tab.for_who) {
-    html += `<div class="tab-section reveal">
+    sections.push(`<div class="tab-section reveal">
       <h4>${tab.for_who_title || 'Pour qui ?'}</h4>
       <p>${tab.for_who}</p>
-    </div>`;
+    </div>`);
   }
 
   if (tab.when) {
     const items = Array.isArray(tab.when) ? tab.when.map(i => `<li>${i}</li>`).join('') : `<p>${tab.when}</p>`;
-    html += `<div class="tab-section reveal">
+    sections.push(`<div class="tab-section reveal">
       <h4>${tab.when_title || 'Quand ?'}</h4>
       <ul>${items}</ul>
-    </div>`;
+    </div>`);
   }
-
-  html += '</div>';
-
-  // Colonne droite
-  html += '<div class="tab-col-right">';
 
   if (tab.why) {
     if (Array.isArray(tab.why)) {
       const intro = tab.why_intro ? `<p>${tab.why_intro}</p>` : '';
       const items = tab.why.map(i => `<li>${i}</li>`).join('');
-      html += `<div class="tab-section reveal">
+      sections.push(`<div class="tab-section reveal">
         <h4>${tab.why_title || 'Pour quoi ?'}</h4>
         ${intro}<ul>${items}</ul>
-      </div>`;
+      </div>`);
     } else {
-      html += `<div class="tab-section reveal">
+      sections.push(`<div class="tab-section reveal">
         <h4>${tab.why_title || 'Pour quoi ?'}</h4>
         <p>${tab.why}</p>
-      </div>`;
+      </div>`);
     }
   }
 
@@ -168,29 +161,42 @@ function buildTabPanel(tab) {
     if (Array.isArray(tab.how)) {
       const intro = tab.how_intro ? `<p>${tab.how_intro}</p>` : '';
       const items = tab.how.map(i => `<li>${i}</li>`).join('');
-      html += `<div class="tab-section reveal">
+      sections.push(`<div class="tab-section reveal">
         <h4>${tab.how_title || 'Comment ?'}</h4>
         ${intro}<ul>${items}</ul>
-      </div>`;
+      </div>`);
     } else {
-      html += `<div class="tab-section reveal">
+      sections.push(`<div class="tab-section reveal">
         <h4>${tab.how_title || 'Comment ?'}</h4>
         <p>${tab.how}</p>
-      </div>`;
+      </div>`);
     }
   }
 
   if (tab.format) {
     const items = tab.format.map(i => `<li>${i}</li>`).join('');
-    html += `<div class="tab-section reveal">
+    sections.push(`<div class="tab-section reveal">
       <h4>${tab.format_title || 'Format'}</h4>
       <ul>${items}</ul>
-    </div>`;
+    </div>`);
   }
 
-  html += '</div>';
-  html += '</div>';
-  return html;
+  // Si "Comment ?" est un long tableau, il tient seul à droite (équilibrage par poids)
+  const howIsLong = tab.how && Array.isArray(tab.how) && tab.how.length > 3;
+  let leftSections, rightSections;
+  if (howIsLong && sections.length >= 3) {
+    leftSections = sections.slice(0, -1);
+    rightSections = sections.slice(-1);
+  } else {
+    const mid = Math.ceil(sections.length / 2);
+    leftSections = sections.slice(0, mid);
+    rightSections = sections.slice(mid);
+  }
+
+  return `<div class="tab-content-grid">
+    <div class="tab-col-left">${leftSections.join('')}</div>
+    <div class="tab-col-right">${rightSections.join('')}</div>
+  </div>`;
 }
 
 /* ==========================================================================

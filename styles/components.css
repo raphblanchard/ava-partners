@@ -237,7 +237,7 @@
 }
 
 .hero-header {
-  max-width: 760px;
+  max-width: 100%;
   margin-bottom: 56px;
 }
 
@@ -250,17 +250,25 @@
 
 .hero-tagline {
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 300;
   font-style: italic;
   color: var(--color-text-mid);
-  padding-top: 0;
-  max-width: 640px;
+  text-align: center;
+  max-width: 100%;
+  margin-top: 24px;
 }
 
 /* -----------------------------------------------------------------------
-   INTERVENTIONS — Onglets
+   INTERVENTIONS — Fond topographique + Onglets
    ----------------------------------------------------------------------- */
+#interventions {
+  background-image: url('../assets/images/topo-bg.svg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 .tabs-nav {
   display: flex;
   border-bottom: 1px solid var(--color-sand);
@@ -327,12 +335,14 @@
 
 .tab-section h4 {
   font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.10em;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-gold);
-  margin-bottom: 14px;
+  color: var(--color-text-dark);
+  border-left: 2px solid var(--color-gold);
+  padding-left: 10px;
+  margin-bottom: 16px;
 }
 
 .tab-section p {
