@@ -12,7 +12,7 @@ export const content = {
       testimonials: 'T\u00e9moignages',
       contact: 'Contact',
       cta: 'Contact',
-      lang: 'EN',
+      lang: '🇬🇧',
     },
 
     hero: {
@@ -36,6 +36,7 @@ export const content = {
     interventions: {
       section_label: 'Nos',
       section_highlight: 'interventions',
+      section_eyebrow: 'Coaching\u00a0· Conseil\u00a0· Transformation',
       tabs: [
         {
           id: 'equipes',
@@ -69,7 +70,6 @@ export const content = {
         {
           id: 'individuel',
           label: 'Accompagnement individuel',
-          subtitle: '(en duo ou en solo)',
           for_who_title: 'Pour qui\u00a0?',
           for_who:
             "Managers interm\u00e9diaires, Managers de managers, Top managers, Dirigeants d\u2019entreprise\u2026",
@@ -139,7 +139,7 @@ export const content = {
     },
 
     about: {
-      section_label: 'Qui sommes',
+      section_label: 'Qui sommes-',
       section_highlight: 'nous\u00a0?',
       intro:
         "Un v\u00e9cu professionnel d\u2019environ 20 ans chacune nous conf\u00e8re une compr\u00e9hension fine des organisations et des \u00e9quilibres parfois fragiles entre le business et l\u2019humain.",
@@ -328,7 +328,7 @@ export const content = {
       testimonials: 'Testimonials',
       contact: 'Contact',
       cta: 'Contact',
-      lang: 'FR',
+      lang: '🇫🇷',
     },
 
     hero: {
@@ -352,6 +352,7 @@ export const content = {
     interventions: {
       section_label: 'Our',
       section_highlight: 'services',
+      section_eyebrow: 'Coaching\u00a0· Consulting\u00a0· Transformation',
       tabs: [
         {
           id: 'equipes',
@@ -385,7 +386,6 @@ export const content = {
         {
           id: 'individuel',
           label: 'Individual coaching',
-          subtitle: '(duo or solo)',
           for_who_title: 'For whom?',
           for_who:
             'Middle managers, Managers of managers, Top managers, Business executives\u2026',

@@ -57,8 +57,9 @@ function renderNav(nav, lang) {
 }
 
 function updateLangToggle(currentLang) {
-  const btn = document.querySelector('.lang-toggle');
-  if (btn) btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  const btns = document.querySelectorAll('.lang-toggle');
+  const label = content[currentLang]?.nav?.lang ?? (currentLang === 'fr' ? '🇬🇧' : '🇫🇷');
+  btns.forEach(btn => btn.textContent = label);
 }
 
 /* ==========================================================================
@@ -80,6 +81,7 @@ function renderHero(hero) {
 function renderInterventions(interventions) {
   setHTML('[data-interventions="title"]',
     `${interventions.section_label} <em>${interventions.section_highlight}</em>`);
+  if (interventions.section_eyebrow) setText('[data-interventions="eyebrow"]', interventions.section_eyebrow);
 
   const tabsNav = document.querySelector('.tabs-nav');
   const tabsContent = document.querySelector('.tabs-content');
@@ -181,22 +183,7 @@ function buildTabPanel(tab) {
     </div>`);
   }
 
-  // Si "Comment ?" est un long tableau, il tient seul à droite (équilibrage par poids)
-  const howIsLong = tab.how && Array.isArray(tab.how) && tab.how.length > 3;
-  let leftSections, rightSections;
-  if (howIsLong && sections.length >= 3) {
-    leftSections = sections.slice(0, -1);
-    rightSections = sections.slice(-1);
-  } else {
-    const mid = Math.ceil(sections.length / 2);
-    leftSections = sections.slice(0, mid);
-    rightSections = sections.slice(mid);
-  }
-
-  return `<div class="tab-content-grid">
-    <div class="tab-col-left">${leftSections.join('')}</div>
-    <div class="tab-col-right">${rightSections.join('')}</div>
-  </div>`;
+  return `<div class="tab-content-single">${sections.join('')}</div>`;
 }
 
 /* ==========================================================================
@@ -229,6 +216,8 @@ function renderAbout(about) {
 /* ==========================================================================
    Valeurs
    ========================================================================== */
+let _valuesAnimated = false;
+
 function renderValues(values) {
   setHTML('[data-values="title"]',
     `${values.section_label} <em>${values.section_highlight}</em>`);
@@ -237,41 +226,100 @@ function renderValues(values) {
   const grid = document.querySelector('[data-values="grid"]');
   if (!grid) return;
 
-  grid.innerHTML = values.items.map(v => `
-    <div class="value-card reveal">
-      <span class="gold-dot"></span>
+  grid.innerHTML = values.items.map((v, i) => `
+    <div class="value-card">
+      <span class="value-number">${String(i + 1).padStart(2, '0')}</span>
       <h3>${v.title}</h3>
       <p>${v.description}</p>
     </div>
   `).join('');
+
+  initValuesAnimation();
+}
+
+function initValuesAnimation() {
+  if (_valuesAnimated) return;
+
+  const grid = document.querySelector('[data-values="grid"]');
+  if (!grid) return;
+
+  grid.classList.add('stacked');
+
+  const section = document.getElementById('valeurs') || grid;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        _valuesAnimated = true;
+        grid.classList.add('dispatching');
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          grid.classList.remove('stacked');
+        }));
+        setTimeout(() => grid.classList.remove('dispatching'), 1400);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(section);
 }
 
 /* ==========================================================================
    Manifesto
    ========================================================================== */
+let _manifeshoAnimated = false;
+
+function initManifestoHighlights() {
+  if (_manifeshoAnimated) return;
+  const section = document.getElementById('manifesto');
+  if (!section) return;
+
+  const highlights = section.querySelectorAll('.manifesto-highlight');
+  if (!highlights.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        _manifeshoAnimated = true;
+        highlights.forEach((el, i) => {
+          setTimeout(() => el.classList.add('highlighted'), 300 + i * 650);
+        });
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(section);
+}
+
 function renderManifesto(manifesto) {
   setText('[data-manifesto="title"]', manifesto.title);
 
-  const leftCol = document.querySelector('[data-manifesto="col-left"]');
+  const leftCol  = document.querySelector('[data-manifesto="col-left"]');
   const rightCol = document.querySelector('[data-manifesto="col-right"]');
 
+  function highlightOpener(text, idx) {
+    return text.replace(/^(\S+\s+\S+)/, `<mark class="manifesto-highlight" data-h="${idx}">$1</mark>`);
+  }
+
   if (leftCol) {
-    leftCol.innerHTML = manifesto.col_left.map(p => `
+    leftCol.innerHTML = manifesto.col_left.map((p, i) => `
       <div class="manifesto-item reveal-left">
         <span class="manifesto-bullet"></span>
-        <p>${p}</p>
+        <p>${highlightOpener(p, i)}</p>
       </div>
     `).join('');
   }
 
   if (rightCol) {
-    rightCol.innerHTML = manifesto.col_right.map(p => `
+    rightCol.innerHTML = manifesto.col_right.map((p, i) => `
       <div class="manifesto-item reveal-right">
         <span class="manifesto-bullet"></span>
-        <p>${p}</p>
+        <p>${highlightOpener(p, i + 2)}</p>
       </div>
     `).join('');
   }
+
+  initManifestoHighlights();
 }
 
 /* ==========================================================================
