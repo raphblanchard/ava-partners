@@ -143,7 +143,7 @@ section.alt-bg {
 
 .section-title em {
   font-style: italic;
-  color: var(--color-sage);
+  color: var(--color-gold);
 }
 
 /* Hero H1 */
@@ -184,7 +184,7 @@ section.alt-bg {
   font-weight: 400;
   color: var(--color-text-mid);
   line-height: 1.75;
-  max-width: 640px;
+  max-width: none;
   margin-bottom: 64px;
 }
 
@@ -261,9 +261,32 @@ section.alt-bg {
 /* Mot ou expression mis en avant dans un paragraphe :
    italic + couleur or + soulignement décoratif discret */
 .text-accent {
-  font-style: italic;
-  color: var(--color-gold);
-  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+  padding: 2px 8px 5px 6px;
+}
+
+.text-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.text-accent[data-h="0"]::before { background-image: url('../assets/images/highlight-1.svg'); }
+.text-accent[data-h="1"]::before { background-image: url('../assets/images/highlight-2.svg'); }
+.text-accent[data-h="2"]::before { background-image: url('../assets/images/highlight-3.svg'); }
+.text-accent[data-h="3"]::before { background-image: url('../assets/images/highlight-4.svg'); }
+
+.text-accent.highlighted::before {
+  clip-path: inset(0 0% 0 0);
 }
 
 /* -----------------------------------------------------------------------

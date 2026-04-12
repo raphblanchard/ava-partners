@@ -46,7 +46,7 @@
       </ul>
 
       <div class="navbar-actions">
-        <button class="lang-toggle" aria-label="Changer la langue">🇬🇧</button>
+        <button class="lang-toggle" aria-label="Changer la langue"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
         <a href="#contact" class="navbar-cta" data-nav="cta">Contact</a>
         <button class="burger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -65,7 +65,7 @@
     <a href="#temoignages" data-mob="testimonials">Témoignages</a>
     <a href="#contact" data-mob="contact">Contact</a>
     <div class="mobile-actions">
-      <button class="lang-toggle" aria-label="Changer la langue">🇬🇧</button>
+      <button class="lang-toggle" aria-label="Changer la langue"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
     </div>
   </div>
 
@@ -145,48 +145,34 @@
       <div class="profile-grid">
 
         <!-- Alexia -->
-        <div class="profile-card reveal-left">
-          <img
-            class="profile-photo"
-            src="assets/images/alexia-honig.png"
-            alt="Alexia Honig"
-            loading="lazy"
-            data-about="alexia-photo"
-          />
-          <div class="profile-info">
+        <div class="profile-card" role="button" tabindex="0" aria-expanded="false">
+          <div class="card-header">
+            <img class="profile-photo" src="assets/images/alexia-honig.png" alt="Alexia Honig" loading="lazy" data-about="alexia-photo"/>
             <h3 data-about="alexia-name">Alexia Honig</h3>
+            <p class="card-teaser" data-about="alexia-teaser"></p>
+          </div>
+          <div class="card-bio-wrap">
             <p data-about="alexia-bio"></p>
-            <div class="profile-links">
-              <a href="mailto:alexia@avapartners.fr" data-about="alexia-email">
-                alexia@avapartners.fr
-              </a>
-              <a href="https://www.linkedin.com/in/alexia-honig-6071851/" target="_blank" rel="noopener" data-about="alexia-linkedin">
-                LinkedIn ↗
-              </a>
-            </div>
+          </div>
+          <div class="card-links">
+            <a href="mailto:alexia@avapartners.fr" data-about="alexia-email">alexia@avapartners.fr</a>
+            <a href="https://www.linkedin.com/in/alexia-honig-6071851/" target="_blank" rel="noopener" data-about="alexia-linkedin">LinkedIn ↗</a>
           </div>
         </div>
 
         <!-- Claire -->
-        <div class="profile-card reveal-right">
-          <img
-            class="profile-photo"
-            src="assets/images/claire-proce-blanchard.png"
-            alt="Claire de Procé-Blanchard"
-            loading="lazy"
-            data-about="claire-photo"
-          />
-          <div class="profile-info">
+        <div class="profile-card" role="button" tabindex="0" aria-expanded="false">
+          <div class="card-header">
+            <img class="profile-photo" src="assets/images/claire-proce-blanchard.png" alt="Claire de Procé-Blanchard" loading="lazy" data-about="claire-photo"/>
             <h3 data-about="claire-name">Claire de Procé-Blanchard</h3>
+            <p class="card-teaser" data-about="claire-teaser"></p>
+          </div>
+          <div class="card-bio-wrap">
             <p data-about="claire-bio"></p>
-            <div class="profile-links">
-              <a href="mailto:claire@avapartners.fr" data-about="claire-email">
-                claire@avapartners.fr
-              </a>
-              <a href="https://www.linkedin.com/in/claire-de-procé-blanchard/" target="_blank" rel="noopener" data-about="claire-linkedin">
-                LinkedIn ↗
-              </a>
-            </div>
+          </div>
+          <div class="card-links">
+            <a href="mailto:claire@avapartners.fr" data-about="claire-email">claire@avapartners.fr</a>
+            <a href="https://www.linkedin.com/in/claire-de-procé-blanchard/" target="_blank" rel="noopener" data-about="claire-linkedin">LinkedIn ↗</a>
           </div>
         </div>
 
@@ -230,7 +216,7 @@
     <div class="manifesto-decor" aria-hidden="true"></div>
     <div class="container">
 
-      <h2 class="manifesto-title reveal" data-manifesto="title">Manifesto</h2>
+      <h2 class="section-title reveal" data-manifesto="title">Manifesto</h2>
 
       <div class="manifesto-grid">
         <div data-manifesto="col-left">
@@ -354,8 +340,6 @@
           <form
             id="contact-form"
             class="contact-form"
-            action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
-            method="POST"
             novalidate
           >
             <div class="form-row">
@@ -457,6 +441,7 @@
   <!-- =====================================================================
        SCRIPTS
        ===================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="module">
     import { renderPage, initLangToggle } from './scripts/lang.js';
     import { initScrollAnimations, initSlider } from './scripts/main.js';

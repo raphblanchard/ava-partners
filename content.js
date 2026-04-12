@@ -36,12 +36,12 @@ export const content = {
     interventions: {
       section_label: 'Nos',
       section_highlight: 'interventions',
-      section_eyebrow: 'Coaching\u00a0· Conseil\u00a0· Transformation',
+      section_eyebrow: 'En français ou en anglais',
       tabs: [
         {
           id: 'equipes',
           label: "Accompagnement d\u2019\u00e9quipes",
-          subtitle: '(en fran\u00e7ais ou en anglais)',
+          subtitle: '',
           for_who_title: 'Pour qui\u00a0?',
           for_who:
             "Comit\u00e9s ex\u00e9cutifs, Comit\u00e9s de direction, Comit\u00e9s op\u00e9rationnels, \u00c9quipes m\u00e9tiers, \u00c9quipes internationales.",
@@ -140,11 +140,12 @@ export const content = {
 
     about: {
       section_label: 'Qui sommes-',
-      section_highlight: 'nous\u00a0?',
+      section_highlight: 'nous?',
       intro:
         "Un v\u00e9cu professionnel d\u2019environ 20 ans chacune nous conf\u00e8re une compr\u00e9hension fine des organisations et des \u00e9quilibres parfois fragiles entre le business et l\u2019humain.",
       alexia: {
         name: 'Alexia Honig',
+        teaser: 'Coach ICF · Marketing & Transformation · 20 ans d\u2019exp\u00e9rience internationale',
         photo: 'assets/images/alexia-honig.png',
         bio:
           "a v\u00e9cu en Afrique, en Asie et en Europe, ce qui a nourri sa curiosit\u00e9 profonde pour les autres et renforc\u00e9 ses capacit\u00e9s d\u2019\u00e9coute et d\u2019adaptabilit\u00e9. Sa carri\u00e8re en tant que cadre marketing dirigeant dans diff\u00e9rentes entreprises de cosm\u00e9tiques (Clarins, Dior, Ioma\u2026) a forg\u00e9 sa conviction que l\u2019\u00e9nergie et l\u2019engagement des collaborateurs sont les v\u00e9ritables atouts d\u2019une organisation. Elle valorise la diversit\u00e9 des points de vue et r\u00e9v\u00e8le le potentiel de chacun. Elle poss\u00e8de un talent unique pour identifier les leviers cl\u00e9s de transformation et pour cr\u00e9er des connexions entre les personnes.",
@@ -153,6 +154,7 @@ export const content = {
       },
       claire: {
         name: 'Claire de Proc\u00e9-Blanchard',
+        teaser: 'Coach & ex-journaliste · Leadership & M\u00e9dias · Prisma Presse, M6\u2026',
         photo: 'assets/images/claire-proce-blanchard.png',
         bio:
           "a men\u00e9 une carri\u00e8re de journaliste en presse \u00e9crite et digitale, occupant notamment des fonctions de chef de service et de r\u00e9dactrice en chef (Prisma Presse, M6\u2026). Convaincue que le lien gu\u00e9rit, elle en a fait un levier d\u2019ouverture et op\u00e9rationnel au c\u0153ur d\u2019organisations complexes en accompagnant dirigeants et \u00e9quipes \u00e0 recr\u00e9er de l\u2019alignement, au service du mieux-vivre au travail et de la dynamique collective. Ses forces\u00a0? Une intelligence sensible doubl\u00e9e d\u2019une exigence au service de ses clients, une finesse dans l\u2019analyse des comportements avec une capacit\u00e9 \u00e0 mettre les mots justes sur ce qui se joue.",
@@ -195,7 +197,8 @@ export const content = {
     },
 
     manifesto: {
-      title: 'MANIFESTO',
+      section_label: 'Notre ',
+      section_highlight: 'manifesto',
       col_left: [
         "Nous croyons en la dynamique de notre duo qui assure une exploration plus profonde et plus nuanc\u00e9e des d\u00e9fis auxquels nos clients sont confront\u00e9s.",
         "Nous croyons en un engagement r\u00e9ciproque, construit dans le temps et \u00e0 la mesure des besoins. Car les transformations profondes demandent de la constance, des \u00e9tapes et des pauses.",
@@ -352,12 +355,12 @@ export const content = {
     interventions: {
       section_label: 'Our',
       section_highlight: 'services',
-      section_eyebrow: 'Coaching\u00a0· Consulting\u00a0· Transformation',
+      section_eyebrow: 'In French or English',
       tabs: [
         {
           id: 'equipes',
           label: 'Team coaching',
-          subtitle: '(in French or English)',
+          subtitle: '',
           for_who_title: 'For whom?',
           for_who:
             'Executive Committees, Management Committees, Operational Committees, Business Teams, International Teams.',
@@ -455,12 +458,13 @@ export const content = {
     },
 
     about: {
-      section_label: 'Who',
-      section_highlight: 'we are',
+      section_label: 'Who ',
+      section_highlight: 'we are?',
       intro:
         'Around 20 years of professional experience each gives us a deep understanding of organisations and the sometimes fragile balance between business and the human element.',
       alexia: {
         name: 'Alexia Honig',
+        teaser: 'ICF Coach · Marketing & Transformation · 20 years international experience',
         photo: 'assets/images/alexia-honig.png',
         bio:
           'has lived in Africa, Asia and Europe, which has nurtured her deep curiosity for others and strengthened her listening and adaptability skills. Her career as a senior marketing executive in various cosmetics companies (Clarins, Dior, Ioma\u2026) forged her conviction that the energy and commitment of employees are the true assets of any organisation. She values diversity of perspectives and reveals the potential of each individual. She has a unique talent for identifying key transformation levers and creating connections between people.',
@@ -469,6 +473,7 @@ export const content = {
       },
       claire: {
         name: 'Claire de Proc\u00e9-Blanchard',
+        teaser: 'Coach & former journalist · Leadership & Media · Prisma Presse, M6\u2026',
         photo: 'assets/images/claire-proce-blanchard.png',
         bio:
           'built a career as a journalist in print and digital media, including roles as section editor and editor-in-chief (Prisma Presse, M6\u2026). Convinced that connection heals, she made it an operational and transformative lever within complex organisations, supporting executives and teams to rebuild alignment in service of well-being at work and collective momentum. Her strengths? A sensitive intelligence combined with a demanding approach in service of her clients, a sharp ability to analyse behaviours and find the right words for what is at play.',
@@ -510,7 +515,8 @@ export const content = {
     },
 
     manifesto: {
-      title: 'MANIFESTO',
+      section_label: 'Our ',
+      section_highlight: 'manifesto',
       col_left: [
         'We believe in the dynamic of our duo, which ensures a deeper and more nuanced exploration of the challenges our clients face.',
         'We believe in reciprocal commitment, built over time and tailored to needs. Because deep transformations require consistency, milestones, and pauses.',

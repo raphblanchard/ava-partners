@@ -24,6 +24,7 @@ export function renderPage(lang) {
 
   renderNav(c.nav, l);
   renderHero(c.hero);
+  initHeroHighlights();
   renderInterventions(c.interventions);
   renderAbout(c.about);
   renderValues(c.values);
@@ -33,6 +34,24 @@ export function renderPage(lang) {
   renderFooter(c.footer);
 
   updateLangToggle(l);
+}
+
+/* ==========================================================================
+   HERO HIGHLIGHTS — surlignage SVG des .text-accent après l'intro
+   ========================================================================== */
+function initHeroHighlights() {
+  const accents = [...document.querySelectorAll('.hero .text-accent')];
+  if (!accents.length) return;
+
+  // Assigner un SVG différent à chaque accent (cycle sur 4)
+  accents.forEach((el, i) => el.setAttribute('data-h', i % 4));
+
+  // Déclencher le reveal une fois l'animation d'intro terminée
+  window.addEventListener('hero-intro-done', () => {
+    accents.forEach((el, i) => {
+      setTimeout(() => el.classList.add('highlighted'), i * 280);
+    });
+  }, { once: true });
 }
 
 /* ==========================================================================
@@ -58,8 +77,13 @@ function renderNav(nav, lang) {
 
 function updateLangToggle(currentLang) {
   const btns = document.querySelectorAll('.lang-toggle');
-  const label = content[currentLang]?.nav?.lang ?? (currentLang === 'fr' ? '🇬🇧' : '🇫🇷');
-  btns.forEach(btn => btn.textContent = label);
+  const isEN = currentLang === 'en';
+  btns.forEach(btn => {
+    const flagEl = btn.querySelector('.lang-flag');
+    const codeEl = btn.querySelector('.lang-code');
+    if (flagEl) flagEl.textContent = isEN ? '🇫🇷' : '🇬🇧';
+    if (codeEl) codeEl.textContent = isEN ? 'FR' : 'EN';
+  });
 }
 
 /* ==========================================================================
@@ -191,11 +215,12 @@ function buildTabPanel(tab) {
    ========================================================================== */
 function renderAbout(about) {
   setHTML('[data-about="title"]',
-    `${about.section_label} <em>${about.section_highlight}</em>`);
+    `${about.section_label}<em>${about.section_highlight}</em>`);
   setText('[data-about="intro"]', about.intro);
 
   // Alexia
   setText('[data-about="alexia-name"]', about.alexia.name);
+  setText('[data-about="alexia-teaser"]', about.alexia.teaser);
   setText('[data-about="alexia-bio"]', about.alexia.bio);
   setAttr('[data-about="alexia-email"]', 'href', `mailto:${about.alexia.email}`);
   setText('[data-about="alexia-email"]', about.alexia.email);
@@ -203,6 +228,7 @@ function renderAbout(about) {
 
   // Claire
   setText('[data-about="claire-name"]', about.claire.name);
+  setText('[data-about="claire-teaser"]', about.claire.teaser);
   setText('[data-about="claire-bio"]', about.claire.bio);
   setAttr('[data-about="claire-email"]', 'href', `mailto:${about.claire.email}`);
   setText('[data-about="claire-email"]', about.claire.email);
@@ -216,7 +242,7 @@ function renderAbout(about) {
 /* ==========================================================================
    Valeurs
    ========================================================================== */
-let _valuesAnimated = false;
+const _valuesAnimated = false; // animation désactivée
 
 function renderValues(values) {
   setHTML('[data-values="title"]',
@@ -238,29 +264,7 @@ function renderValues(values) {
 }
 
 function initValuesAnimation() {
-  if (_valuesAnimated) return;
-
-  const grid = document.querySelector('[data-values="grid"]');
-  if (!grid) return;
-
-  grid.classList.add('stacked');
-
-  const section = document.getElementById('valeurs') || grid;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        _valuesAnimated = true;
-        grid.classList.add('dispatching');
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          grid.classList.remove('stacked');
-        }));
-        setTimeout(() => grid.classList.remove('dispatching'), 1400);
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.2 });
-
-  observer.observe(section);
+  // Animation de distribution supprimée
 }
 
 /* ==========================================================================
@@ -292,7 +296,7 @@ function initManifestoHighlights() {
 }
 
 function renderManifesto(manifesto) {
-  setText('[data-manifesto="title"]', manifesto.title);
+  setHTML('[data-manifesto="title"]', `${manifesto.section_label}<em>${manifesto.section_highlight}</em>`);
 
   const leftCol  = document.querySelector('[data-manifesto="col-left"]');
   const rightCol = document.querySelector('[data-manifesto="col-right"]');

@@ -3,17 +3,93 @@
 // NB : renderPage() est appelé depuis le script inline dans index.html
 
 /* ==========================================================================
+   EMAILJS — Identifiants (déclarés avant initForm)
+   ========================================================================== */
+const EMAILJS_SERVICE_ID  = 'service_7dbzpbz';
+const EMAILJS_TEMPLATE_ID = 'template_hq228ty';
+const EMAILJS_PUBLIC_KEY  = '6vo3OYsN5RWihW36c';
+
+/* ==========================================================================
    INIT — ES modules sont différés, le DOM est prêt à ce stade
    ========================================================================== */
 initNavbar();
+initHeroIntro(); // doit être avant initScrollAnimations (appelé depuis index.html)
 initForm();
+initProfileCards();
 initActiveNavLinks();
+initLogosDrag();
 
 // Le slider et les animations sont initialisés depuis index.html après renderPage()
 // pour s'assurer que le contenu dynamique est déjà injecté
 window.addEventListener('reinit-slider', () => initSlider());
 
 export { initScrollAnimations, initSlider };
+
+/* ==========================================================================
+   HERO INTRO — Animation d'entrée : titre centré → position + paragraphes
+   ========================================================================== */
+function initHeroIntro() {
+  const heroTitle   = document.querySelector('.hero-title');
+  const heroGrid    = document.querySelector('.hero-grid');
+  const heroTagline = document.querySelector('.hero-tagline');
+  const navbar      = document.querySelector('.navbar');
+  if (!heroTitle || !heroGrid) return;
+
+  // Paragraphes à révéler un à un
+  const paragraphs = [
+    ...heroGrid.querySelectorAll('.body-text'),
+    heroTagline
+  ].filter(Boolean);
+
+  paragraphs.forEach(p => {
+    p.classList.remove('reveal');
+    p.style.opacity   = '0';
+    p.style.transform = 'translateY(14px)';
+  });
+
+  // Navbar visible dès le départ
+
+  // FLIP : décalage pour que le titre parte du centre de l'écran
+  const rect = heroTitle.getBoundingClientRect();
+  const dx   = window.innerWidth  / 2 - (rect.left + rect.width  / 2);
+  const dy   = window.innerHeight * 0.58 - (rect.top  + rect.height / 2);
+
+  // Titre invisible, positionné au centre
+  heroTitle.style.opacity    = '0';
+  heroTitle.style.transform  = `translate(${dx}px, ${dy}px)`;
+  heroTitle.style.transition = 'none';
+
+  // Phase 1 : apparition progressive au centre (1.2s)
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    heroTitle.style.transition = 'opacity 1.2s ease';
+    heroTitle.style.opacity    = '1';
+
+    // Phase 2 : remontée lente vers la position naturelle (après 2s au centre)
+    setTimeout(() => {
+      heroTitle.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      heroTitle.style.transform  = 'translate(0, 0)';
+
+      // Phase 3 : paragraphes un à un après l'atterrissage
+      setTimeout(() => {
+        heroTitle.style.transition = '';
+        paragraphs.forEach((p, i) => {
+          setTimeout(() => {
+            p.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+            p.style.opacity    = '1';
+            p.style.transform  = 'translateY(0)';
+          }, i * 240);
+        });
+
+        // Déclencher le surlignage après que tous les paragraphes sont apparus
+        const totalDelay = paragraphs.length * 240 + 400;
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent('hero-intro-done'));
+        }, totalDelay);
+      }, 750); // attend la fin du translate (0.8s)
+
+    }, 1100); // pause au centre
+  }));
+}
 
 /* ==========================================================================
    NAVBAR — scroll shadow + menu mobile
@@ -223,11 +299,176 @@ function initSlider() {
 }
 
 /* ==========================================================================
-   FORMULAIRE CONTACT — Validation + Formspree
+   PROFIL CARDS — Expand on hover (desktop) + click (all), Escape + outside
+   ========================================================================== */
+function initProfileCards() {
+  const grid = document.querySelector('.profile-grid');
+  if (!grid) return;
+
+  function resetCards() {
+    grid.querySelectorAll('.profile-card').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Clic : toggle active
+  grid.addEventListener('click', (e) => {
+    const card = e.target.closest('.profile-card');
+    if (!card) return;
+    const isActive = card.classList.contains('active');
+    resetCards();
+    if (!isActive) {
+      card.classList.add('active');
+      card.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Escape : fermer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') resetCards();
+  });
+
+  // Clic en dehors : fermer
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.profile-grid')) resetCards();
+  });
+}
+
+/* ==========================================================================
+   LOGOS MARQUEE — Scroll JS + drag + pause au survol
+   ========================================================================== */
+function initLogosDrag() {
+  const track = document.querySelector('.testimonials-logos-track');
+  if (!track) return;
+
+  const marquees = [...track.querySelectorAll('.logos-marquee')];
+  if (marquees.length < 2) return;
+
+  // Envelopper les deux copies dans un conteneur unique qu'on va translater
+  const slider = document.createElement('div');
+  slider.style.cssText = 'display:flex; flex-shrink:0; will-change:transform;';
+  marquees.forEach(m => slider.appendChild(m));
+  track.appendChild(slider);
+
+  let offset = 0;
+  let isDragging = false;
+  let lastX = 0;
+  const SPEED = 0.55; // px/frame
+
+  function tick() {
+    if (!isDragging) offset += SPEED;
+
+    const w = marquees[0].offsetWidth;
+    if (w > 0) {
+      if (offset >= w) offset -= w;
+      if (offset < 0) offset += w;
+    }
+
+    slider.style.transform = `translateX(${-offset}px)`;
+    requestAnimationFrame(tick);
+  }
+
+  tick();
+
+  track.addEventListener('mouseleave', () => {
+    isDragging = false;
+    track.style.cursor = 'grab';
+  });
+
+  // Easter egg — 5 clics sur le logo VAP
+  let vapClicks = 0;
+  let vapTimer = null;
+  let dragMoved = false;
+
+  track.addEventListener('click', (e) => {
+    if (dragMoved) return; // ignorer si c'était un drag
+    const img = e.target.closest('img');
+    if (!img || !img.src.includes('vap')) return;
+
+    vapClicks++;
+    clearTimeout(vapTimer);
+    vapTimer = setTimeout(() => { vapClicks = 0; }, 2500);
+
+    if (vapClicks >= 5) {
+      vapClicks = 0;
+      clearTimeout(vapTimer);
+      triggerVapEasterEgg(img);
+    }
+  });
+
+  function triggerVapEasterEgg(el) {
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const emojis = ['🎉', '✨', '🎊', '⭐', '💫', '🌟', '🥳'];
+
+    for (let i = 0; i < 16; i++) {
+      const span = document.createElement('span');
+      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      const angle = (Math.PI * 2 * i) / 16 + Math.random() * 0.4;
+      const dist = 60 + Math.random() * 100;
+      span.style.cssText = `
+        position: fixed;
+        left: ${cx}px;
+        top: ${cy}px;
+        font-size: ${14 + Math.random() * 14}px;
+        pointer-events: none;
+        z-index: 9999;
+        animation: easteregg-float ${0.9 + Math.random() * 0.5}s ease-out forwards;
+        --dx: ${Math.cos(angle) * dist}px;
+        --dy: ${Math.sin(angle) * dist - 60}px;
+      `;
+      document.body.appendChild(span);
+      setTimeout(() => span.remove(), 1600);
+    }
+  }
+
+  // Drag souris
+  track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    dragMoved = false;
+    lastX = e.clientX;
+    track.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const delta = e.clientX - lastX;
+    if (Math.abs(delta) > 3) dragMoved = true;
+    offset -= delta;
+    lastX = e.clientX;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.cursor = 'grab';
+  });
+
+  // Drag tactile
+  let touchX = 0;
+  track.addEventListener('touchstart', (e) => {
+    touchX = e.touches[0].clientX;
+  }, { passive: true });
+
+  track.addEventListener('touchmove', (e) => {
+    offset -= (e.touches[0].clientX - touchX);
+    touchX = e.touches[0].clientX;
+  }, { passive: true });
+}
+
+/* ==========================================================================
+   FORMULAIRE CONTACT — Validation + EmailJS
    ========================================================================== */
 function initForm() {
   const form = document.querySelector('#contact-form');
   if (!form) return;
+
+  if (window.emailjs) {
+    window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -248,19 +489,11 @@ function initForm() {
     btn.textContent = '...';
 
     try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' },
-      });
-
-      if (response.ok) {
-        form.reset();
-        showMessage(messageEl, 'success', form.dataset.successMsg || 'Message envoyé !');
-      } else {
-        throw new Error();
-      }
-    } catch {
+      await window.emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+      form.reset();
+      showMessage(messageEl, 'success', form.dataset.successMsg || 'Message envoyé !');
+    } catch (err) {
+      console.error('EmailJS error:', err);
       showMessage(messageEl, 'error', form.dataset.errorMsg || 'Une erreur est survenue.');
     } finally {
       btn.disabled = false;
