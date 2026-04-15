@@ -419,13 +419,15 @@ function setAttr(selector, attr, value) {
    Sélecteur de langue (initialisé depuis index.html)
    ========================================================================== */
 export function initLangToggle() {
-  const btn = document.querySelector('.lang-toggle');
-  if (!btn) return;
+  const btns = document.querySelectorAll('.lang-toggle');
+  if (!btns.length) return;
 
-  btn.addEventListener('click', () => {
-    const current = getCurrentLang();
-    const next = current === 'fr' ? 'en' : 'fr';
-    renderPage(next);
-    window.dispatchEvent(new CustomEvent('reinit-animations'));
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const current = getCurrentLang();
+      const next = current === 'fr' ? 'en' : 'fr';
+      renderPage(next);
+      window.dispatchEvent(new CustomEvent('reinit-animations'));
+    });
   });
 }
