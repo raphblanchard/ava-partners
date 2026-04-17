@@ -29,7 +29,7 @@ export function renderPage(lang) {
   renderAbout(c.about);
   renderValues(c.values);
   renderManifesto(c.manifesto);
-  renderTestimonials(c.testimonials, content.fr.testimonials); // EN uses FR quotes
+  renderTestimonials(c.testimonials);
   renderContact(c.contact);
   renderFooter(c.footer);
 
@@ -329,15 +329,14 @@ function renderManifesto(manifesto) {
 /* ==========================================================================
    Témoignages
    ========================================================================== */
-function renderTestimonials(testimonials, frTestimonials) {
+function renderTestimonials(testimonials) {
   setHTML('[data-testimonials="title"]',
     `${testimonials.section_label} <em>${testimonials.section_highlight}</em>`);
 
   const track = document.querySelector('.slider-track');
   if (!track) return;
 
-  // EN uses FR quotes (they're not re-translated)
-  const items = testimonials.items.length > 0 ? testimonials.items : frTestimonials.items;
+  const items = testimonials.items;
 
   track.innerHTML = items.map(t => `
     <div class="slide">

@@ -530,7 +530,86 @@ export const content = {
     testimonials: {
       section_label: 'Client',
       section_highlight: 'testimonials',
-      items: [], // English testimonials use same quotes — not re-translated
+      items: [
+        {
+          quote:
+            "Working with Alexia and Claire during the onboarding of the Dior Backstage Pros team was an exceptional experience. Their support played a key role in uniting the group around a shared mission, fostering trust and cohesion. Thanks to their insightful approach, the team was able to embrace its new mission with clarity and enthusiasm, laying the foundations for a strong and inspiring collaboration.",
+          author: 'Sharon Zarfati',
+          role: 'International Head of Retail Education, DIOR Make up',
+        },
+        {
+          quote:
+            "Claire contributed to our Group by facilitating co-development sessions for managers. Through this peer learning process, Claire helped them cultivate their managerial posture and consolidate their professional identity. Feedback was very positive, highlighting Claire's ability to challenge and move managers forward.",
+          author: 'Isabelle Lovett',
+          role: 'HR Director – Prospective & Skills Management, AG2R La Mondiale',
+        },
+        {
+          quote:
+            "Brilliant and deeply sensitive, Claire quickly understood my challenges and pushed me forward, always with care. Her non-judgmental support helped me move ahead, make strategic decisions, and most importantly, face reality head-on. I always felt supported, even in the most difficult moments. I also became aware of my very emotional relationship with my team, and how it was undermining my leadership posture. A powerful, lucid, and deeply human coaching experience.",
+          author: 'Nathalie Serfaty',
+          role: 'Founder and CEO of VAP, private concierge company',
+        },
+        {
+          quote:
+            "Alexia's individual coaching helped me step into my new role with clarity, confidence and serenity. Joining the family business, I was able to assert my place while making my mark with the existing teams. The subsequent coaching of my close team strengthened cohesion and improved communication among colleagues. Today, we continue our journey with renewed collective energy.",
+          author: 'Mélanie Viquel',
+          role: 'Development Director, Viquel',
+        },
+        {
+          quote:
+            "Thanks to Alexia's support, I was able to take a step back and gain strategic perspective to realign my priorities in a demanding transformation context. Her pragmatic and caring approach helped me strengthen my impact as a leader.",
+          author: 'Mohamed Benkhodja',
+          role: 'People Experience Leader, Onepoint',
+        },
+        {
+          quote:
+            "I had the opportunity to work with Alexia and Claire on two occasions, as Regional HR Director at Clarins. The complementarity and professionalism of their duo were major assets in both cases, which I would describe as team 'metamorphoses'. The dynamic that developed between the three of us — forming a real squad — was an important element of stability and grounding for the success of these support projects. Mutual trust, authentic exchange, and a genuine commitment to the team's human challenges. Thank you AVA Partners for your generous, attentive and effective support.",
+          author: 'Ilaria Gigou',
+          role: 'Founder and Managing Director, Workescape',
+        },
+        {
+          quote:
+            "Working with Ava helps me clarify my understanding of how our organisation functions and to better activate the development resources it reveals. It is both a deep-dive process and relevant support in choosing which management levers to prioritise.",
+          author: 'Arnaud Gastelu',
+          role: 'Co-owner, Alisea Corporate Finance',
+        },
+        {
+          quote:
+            "The Claire & Alexia duo works wonderfully. Their complementarity brings rhythm, clarity and depth. Through their two-voice approach — always fluid and caring — they managed to rebuild connection within our Executive Committee, break down post-Covid silos and open a new space for constructive dialogue. Their posture is both facilitative and accessible, and the seminars they led — as well as the one-on-one time with me as a leader — were spot on. A true tandem in service of collective intelligence. And as a bonus, when a link is missing or there's a 'gap' on the management side, they know how to suggest the right connections with targeted, effective experts.",
+          author: 'Rose-Marie Farrugia',
+          role: 'CEO, Cercle des Vacances',
+        },
+        {
+          quote:
+            "Alexia and Claire are driven by deep kindness and straightforward authenticity. They know how to create a safe space where everyone can express their inner world with full confidence. Their powerful complementarity, combined with a grounded and committed presence, allows them to guide the group with gentleness while daring to name what gets in the way: the unspoken, the tensions, the dysfunctions. Without ever judging, they offer a sincere mirror, stimulating individual and collective awareness. In doing so, they open the path towards stronger cohesion and a healthier dynamic, where the collective is (re)built on trust, responsibility and clarity.",
+          author: 'Patrick Chavanne',
+          role: 'General Manager, Clarins Switzerland',
+        },
+        {
+          quote:
+            "Alexia and Claire stepped in during a moment of profound transformation: new governance, strategic repositioning, service offering evolution — all within a demanding human and business context, after 15 years of existence. A complex playing field, which they navigated with great finesse. They stood out for the accuracy of their analysis, an excellent understanding of our company culture, and a subtle reading of the existing balances. We particularly valued their ability to coach us as a leadership duo, with its strengths and complementarities. Alexia and Claire know how to guide the collective with empathy but without complacency — which is precious and rare.",
+          author: 'Beatrice Pierrard & Fanny Ponsot',
+          role: 'CEO & Deputy CEO, Agence Chic',
+        },
+        {
+          quote:
+            "What I appreciated most about Alexia and Claire was their listening. They spent a great deal of time digging in and getting to know each member of the executive committee and our Group dynamics before proposing a personalised action plan tailored to our needs. Throughout the process, I always received precise feedback, and we took time for analysis and adjustment when needed. Beyond all that, the most important thing is the results. My executive committee transformed from a group of wary, not-so-motivated individuals into a real team — one that shares a clear goal, trusts one another, and genuinely enjoys working together.",
+          author: 'Julio Quiroga',
+          role: 'President EMEA and LATAM, Clarins Group',
+        },
+        {
+          quote:
+            "This team coaching was very beneficial for our group of finance directors. The complementary approach of the two coaches allowed us to create a climate of trust conducive to open exchanges and effective communication. The setting — serious and professional, with a touch of lightness — helped strengthen bonds and encourage cooperation. Today, exchanges are more harmonious, best practices are better shared, and we feel we belong to a supportive network. A stimulating and productive experience that I highly recommend.",
+          author: 'Cherif Rebai',
+          role: 'CFO',
+        },
+        {
+          quote:
+            "I have greatly enjoyed collaborating on multiple occasions with the wonderful duo formed by Alexia and Claire. I have always believed that two heads are better than one, and once again, they proved me right! They know how to draw out the essence of collective work with intelligence and finesse. Working with them is a true joy: curious, lively, open, efficient — they demonstrate exceptional adaptability.",
+          author: 'Nathalie K.',
+          role: 'Cultural agency NathKlo Connections, former Brand & Communications Director, Cultura',
+        },
+      ],
     },
 
     contact: {

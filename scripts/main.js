@@ -204,6 +204,7 @@ function initTabs() {
 // Persiste entre les réinitialisations (changement de langue)
 let _sliderUserInteracted = false;
 let _sliderAbortCtrl = null;
+let _sliderAutoPlayTimer = null; // module-level pour pouvoir le nettoyer entre les appels
 
 function initSlider() {
   const slider = document.querySelector('.slider-wrapper');
@@ -217,13 +218,16 @@ function initSlider() {
 
   if (!track || slides.length === 0) return;
 
+  // Annule l'ancien timer AVANT tout (évite le timer fantôme)
+  clearInterval(_sliderAutoPlayTimer);
+  _sliderAutoPlayTimer = null;
+
   // Annule tous les anciens event listeners
   if (_sliderAbortCtrl) _sliderAbortCtrl.abort();
   _sliderAbortCtrl = new AbortController();
   const sig = { signal: _sliderAbortCtrl.signal };
 
   let current = 0;
-  let autoPlayTimer = null;
   const total = slides.length;
 
   // Créer les dots (on vide d'abord pour éviter les doublons au reinit)
@@ -252,14 +256,14 @@ function initSlider() {
   }
 
   function stopAutoPlay() {
-    clearInterval(autoPlayTimer);
-    autoPlayTimer = null;
+    clearInterval(_sliderAutoPlayTimer);
+    _sliderAutoPlayTimer = null;
   }
 
   function startAutoPlay() {
     stopAutoPlay(); // évite les timers en doublon
     const interval = _sliderUserInteracted ? 30000 : 6000;
-    autoPlayTimer = setInterval(() => goTo(current + 1), interval);
+    _sliderAutoPlayTimer = setInterval(() => goTo(current + 1), interval);
   }
 
   // Boutons prev/next
