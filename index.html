@@ -445,7 +445,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="module">
     import { renderPage, initLangToggle } from './scripts/lang.js';
-    import { initScrollAnimations, initSlider } from './scripts/main.js';
+    import { initScrollAnimations, initSlider, initTabsMobileStepper } from './scripts/main.js';
 
     // Rendre la page (injecte le contenu dynamique)
     renderPage();
@@ -454,12 +454,14 @@
     // (initSlider est déclenché via reinit-slider depuis renderTestimonials)
     initScrollAnimations();
     initLangToggle();
+    initTabsMobileStepper();
 
     // Ré-init animations après changement de langue
     window.addEventListener('reinit-animations', () => {
       document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-fade, .reveal-scale')
         .forEach(el => el.classList.remove('visible'));
       initScrollAnimations();
+      initTabsMobileStepper();
     });
   </script>
 

@@ -4,19 +4,20 @@
 
 import { content } from '../content.js';
 
-const STORAGE_KEY = 'ava-lang';
-
 /* ==========================================================================
    API publique
    ========================================================================== */
 
+// La langue courante en mémoire (repart toujours en FR au chargement)
+let _currentLang = 'fr';
+
 export function getCurrentLang() {
-  return localStorage.getItem(STORAGE_KEY) || 'fr';
+  return _currentLang;
 }
 
 export function renderPage(lang) {
-  const l = lang || getCurrentLang();
-  localStorage.setItem(STORAGE_KEY, l);
+  const l = lang || _currentLang;
+  _currentLang = l;
   document.documentElement.setAttribute('lang', l);
 
   const c = content[l];

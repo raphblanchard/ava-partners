@@ -171,31 +171,93 @@ function initScrollAnimations() {
 }
 
 /* ==========================================================================
-   ONGLETS INTERVENTIONS
+   ONGLETS INTERVENTIONS — Stepper mobile
    ========================================================================== */
-function initTabs() {
-  const tabsContainer = document.querySelector('.tabs-interventions');
-  if (!tabsContainer) return;
+export function initTabsMobileStepper() {
+  if (window.innerWidth > 768) return;
 
-  const buttons = tabsContainer.querySelectorAll('.tab-btn');
-  const panels = tabsContainer.querySelectorAll('.tab-panel');
+  const tabsNav     = document.querySelector('.tabs-nav');
+  const tabsContent = document.querySelector('.tabs-content');
+  if (!tabsNav || !tabsContent) return;
 
-  function activateTab(index) {
+  const buttons = [...tabsNav.querySelectorAll('.tab-btn')];
+  const panels  = [...tabsContent.querySelectorAll('.tab-panel')];
+  if (!buttons.length) return;
+
+  // Supprimer le stepper précédent s'il existe (reinit langue)
+  document.querySelector('.tabs-mobile-stepper')?.remove();
+  document.querySelector('.tabs-mobile-dropdown')?.remove();
+
+  let current = Math.max(0, buttons.findIndex(b => b.classList.contains('active')));
+
+  /* --- Stepper --- */
+  const stepper = document.createElement('div');
+  stepper.className = 'tabs-mobile-stepper';
+
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'stepper-arrow stepper-prev';
+  prevBtn.setAttribute('aria-label', 'Précédent');
+  prevBtn.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>`;
+
+  const titleBtn = document.createElement('button');
+  titleBtn.className = 'stepper-title';
+
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'stepper-arrow stepper-next';
+  nextBtn.setAttribute('aria-label', 'Suivant');
+  nextBtn.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>`;
+
+  stepper.append(prevBtn, titleBtn, nextBtn);
+
+  /* --- Dropdown --- */
+  const dropdown = document.createElement('div');
+  dropdown.className = 'tabs-mobile-dropdown';
+
+  buttons.forEach((btn, i) => {
+    const item = document.createElement('button');
+    item.className = 'tabs-dropdown-item';
+    // Texte sans le <small> sous-titre
+    const clone = btn.cloneNode(true);
+    clone.querySelector('small')?.remove();
+    item.textContent = clone.textContent.trim();
+    item.addEventListener('click', () => { goTo(i); closeDropdown(); });
+    dropdown.appendChild(item);
+  });
+
+  // Insérer avant le tabs-nav (dans le même parent)
+  tabsNav.before(stepper, dropdown);
+
+  /* --- Logique --- */
+  function goTo(index) {
+    current = ((index % buttons.length) + buttons.length) % buttons.length;
     buttons.forEach((btn, i) => {
-      btn.classList.toggle('active', i === index);
-      btn.setAttribute('aria-selected', i === index);
+      btn.classList.toggle('active', i === current);
+      btn.setAttribute('aria-selected', i === current);
     });
-    panels.forEach((panel, i) => {
-      panel.classList.toggle('active', i === index);
+    panels.forEach((panel, i) => panel.classList.toggle('active', i === current));
+    updateUI();
+  }
+
+  function updateUI() {
+    const clone = buttons[current].cloneNode(true);
+    clone.querySelector('small')?.remove();
+    titleBtn.innerHTML = `<span class="stepper-title-text">${clone.textContent.trim()}</span><span class="stepper-chevron">▾</span>`;
+    dropdown.querySelectorAll('.tabs-dropdown-item').forEach((item, i) => {
+      item.classList.toggle('active', i === current);
     });
   }
 
-  buttons.forEach((btn, i) => {
-    btn.addEventListener('click', () => activateTab(i));
+  function openDropdown()  { dropdown.classList.add('open'); titleBtn.classList.add('open'); }
+  function closeDropdown() { dropdown.classList.remove('open'); titleBtn.classList.remove('open'); }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  titleBtn.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.contains('open') ? closeDropdown() : openDropdown(); });
+  document.addEventListener('click', (e) => {
+    if (!stepper.contains(e.target) && !dropdown.contains(e.target)) closeDropdown();
   });
 
-  // Activer le premier onglet par défaut
-  activateTab(0);
+  updateUI();
 }
 
 /* ==========================================================================

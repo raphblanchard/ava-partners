@@ -347,8 +347,18 @@ section.alt-bg {
     --container-padding: 0 24px;
   }
 
+  /* Scroll libre sur mobile */
+  html {
+    scroll-snap-type: none;
+  }
+  section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+    min-height: auto;
+  }
+
   .hero-title {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   .section-title {
