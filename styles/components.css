@@ -1072,6 +1072,8 @@
   background: var(--color-text-dark);
   color: var(--color-text-light);
   padding: 40px 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .footer-inner {
