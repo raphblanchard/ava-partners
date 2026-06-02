@@ -22,13 +22,13 @@ export const content = {
       title_part2: " d\u2019expertes de l\u2019accompagnement",
       title_line2: 'au service des dynamiques de transformation',
       col_left_p1:
-        "Nous, Claire et Alexia, accompagnons des dirigeants et managers, des \u00e9quipes Codir et Comex \u2013 en fran\u00e7ais ou en anglais \u2013 dans leurs besoins de soutien et de suivi dans des phases de croissance, de crise et/ou de transformation.",
+        "Nous, Claire et Alexia, accompagnons des <span class=\"text-accent\">dirigeants et managers</span>, des \u00e9quipes <span class=\"text-accent\">Codir et Comex</span> \u2013 en fran\u00e7ais ou en anglais \u2013 dans leurs besoins de soutien et de suivi dans des phases de <span class=\"text-accent\">croissance, de crise et/ou de transformation</span>.",
       col_left_p2:
-        "Nous fixons des <span class=\"text-accent\">indicateurs de r\u00e9ussite</span>, qui soutiennent la mise en mouvement. En agissant sur le <span class=\"text-accent\">soft</span> (dynamiques relationnelles) et le <span class=\"text-accent\">hard</span> (enjeux op\u00e9rationnels), nous installons un climat apais\u00e9 qui renforce l\u2019efficacit\u00e9 collective et la performance.",
+        "Nous fixons des indicateurs de r\u00e9ussite, qui soutiennent la mise en mouvement. En agissant sur le soft (<span class=\"text-accent\">dynamiques relationnelles</span>) et le hard (<span class=\"text-accent\">enjeux op\u00e9rationnels</span>), nous installons un climat apais\u00e9 qui renforce l\u2019efficacit\u00e9 collective et la performance.",
       col_right_p1:
-        "Intervenir ensemble cr\u00e9e une richesse d\u2019analyse, de perspective et de prise de hauteur qui se r\u00e9pondent et s\u2019enrichissent pour un accompagnement plus fin, plus ajust\u00e9 et profond\u00e9ment ancr\u00e9 dans le r\u00e9el.",
+        "<span class=\"text-accent\">Intervenir ensemble</span> cr\u00e9e une richesse d\u2019analyse, de perspective et de prise de hauteur qui se r\u00e9pondent et se nourrissent pour un accompagnement <span class=\"text-accent\">plus fin, plus ajust\u00e9 et optimis\u00e9</span>.",
       col_right_p2:
-        "Notre duo est un <span class=\"text-accent\">syst\u00e8me face \u00e0 un syst\u00e8me</span>, comme un miroir face \u00e0 votre organisation. Nous captons les <span class=\"text-accent\">subtilit\u00e9s</span> de ce qui se joue dans l\u2019organisation et guidons dans la complexit\u00e9.",
+        "Notre duo est un syst\u00e8me face \u00e0 un syst\u00e8me, comme un miroir face \u00e0 votre organisation. Nous <span class=\"text-accent\">captons les subtilit\u00e9s</span> de ce qui se joue dans l\u2019organisation et <span class=\"text-accent\">guidons dans la complexit\u00e9</span>.",
       tagline:
         'Un accompagnement suivi et des livrables concrets pour des changements durables',
     },
@@ -60,11 +60,12 @@ export const content = {
           how_title: "Comment travaillons-nous\u00a0?",
           how_intro: "Nous travaillons dans l\u2019\u00e9mergence, sur-mesure, avec le vivant.",
           how: [
+            "Un rendez-vous exploratoire avec le chef d\u2019\u00e9quipe, DG, PDG et\u00a0/\u00a0ou DRH, permet d\u2019\u00e9voquer enjeux et modalit\u00e9s d\u2019interventions.",
             "Un premier diagnostic et une strat\u00e9gie sont pos\u00e9s.",
             "Le protocole d\u2019intervention se co-construit avec le client.",
             "L\u2019accompagnement s\u2019ajuste en temps r\u00e9el aux enjeux internes et externes. Il mixe relationnel, op\u00e9rationnel, plans d\u2019actions concrets\u2026",
-            "Une attention particuli\u00e8re est port\u00e9e \u00e0 l\u2019\u00e9nergie du groupe et au rythme.",
             "Nous proposons, six mois apr\u00e8s la fin de l\u2019accompagnement, un rendez-vous de suivi.",
+            "Nous g\u00e9n\u00e9rons de v\u00e9ritables prises de conscience gr\u00e2ce \u00e0 une approche it\u00e9rative. Une intervention ponctuelle d\u2019une journ\u00e9e cr\u00e9e une dynamique, mais si elle est r\u00e9p\u00e9t\u00e9e, les liens \u00e9voluent et les changements durables s\u2019ancrent.",
           ],
         },
         {
@@ -72,7 +73,7 @@ export const content = {
           label: 'Accompagnement individuel',
           for_who_title: 'Pour qui\u00a0?',
           for_who:
-            "Managers interm\u00e9diaires, Managers de managers, Top managers, Dirigeants d\u2019entreprise\u2026",
+            "Dirigeants d\u2019entreprise, Top managers, Managers interm\u00e9diaires\u2026",
           why_title: "Pour quoi\u00a0?",
           why: [
             "Prise de poste, \u00e9largissement de p\u00e9rim\u00e8tre.",
@@ -83,8 +84,7 @@ export const content = {
           how: [
             "Un entretien exploratoire (sans engagement) permet de clarifier les besoins, poser les objectifs, les indicateurs\u2026",
             "Un plan d\u2019accompagnement personnalis\u00e9 est propos\u00e9. Sont d\u00e9cid\u00e9s\u00a0: le nombre estimatif de s\u00e9ances, la p\u00e9riodicit\u00e9, le lieu des s\u00e9ances, des bilans interm\u00e9diaires si n\u00e9cessaire.",
-            "En entreprise, une s\u00e9ance tripartite d\u2019ouverture et une de cl\u00f4ture peuvent \u00eatre int\u00e9gr\u00e9es.",
-            "Selon les besoins, nous mobilisons \u00e9galement notre r\u00e9seau pour proposer des pairs de confiance, quand nous ne sommes pas les mieux plac\u00e9es pour intervenir.",
+            "Selon les besoins, nous mobilisons \u00e9galement notre r\u00e9seau pour proposer des pairs de confiance.",
             "Dans le cadre d\u2019un coaching en entreprise, une s\u00e9ance tripartite de d\u00e9marrage (avec le manager et/ou le DRH) et une s\u00e9ance de cl\u00f4ture seront pr\u00e9vues.",
           ],
         },
@@ -98,7 +98,7 @@ export const content = {
           why_intro:
             "Le CoDev est une m\u00e9thode d\u2019apprentissage \u00ab entre pairs \u00bb. Elle stimule l\u2019intelligence collective, d\u00e9veloppe les comp\u00e9tences et renforce la coop\u00e9ration autour de situations r\u00e9elles telles que\u00a0:",
           why: [
-            "Difficult\u00e9s relationnelles ou man\u00e9\u00e9riales.",
+            "Difficult\u00e9s relationnelles ou manag\u00e9riales.",
             "Questions d\u2019organisation ou de posture.",
             "Confiance en soi, assertivit\u00e9, prise de recul, priorisation\u2026",
           ],
