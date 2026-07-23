@@ -2,6 +2,9 @@
 // Structuré FR/EN pour migration Sanity (Phase 2)
 // NE PAS mettre de texte directement dans index.html
 
+// Émails reconstruits à l'exécution (anti-scraping) : jamais en clair dans le code source
+const mail = (user, domain) => `${user}@${domain}`;
+
 export const content = {
   fr: {
     nav: {
@@ -149,7 +152,7 @@ export const content = {
         photo: 'assets/images/alexia-honig.png',
         bio:
           "a v\u00e9cu en Afrique, en Asie et en Europe, ce qui a nourri sa curiosit\u00e9 profonde pour les autres et renforc\u00e9 ses capacit\u00e9s d\u2019\u00e9coute et d\u2019adaptabilit\u00e9. Sa carri\u00e8re en tant que cadre marketing dirigeant dans diff\u00e9rentes entreprises de cosm\u00e9tiques (Clarins, Dior, Ioma\u2026) a forg\u00e9 sa conviction que l\u2019\u00e9nergie et l\u2019engagement des collaborateurs sont les v\u00e9ritables atouts d\u2019une organisation. Elle valorise la diversit\u00e9 des points de vue et r\u00e9v\u00e8le le potentiel de chacun. Elle poss\u00e8de un talent unique pour identifier les leviers cl\u00e9s de transformation et pour cr\u00e9er des connexions entre les personnes.",
-        email: 'alexia@avapartners.fr',
+        email: mail('alexia', 'avapartners.fr'),
         linkedin: 'https://www.linkedin.com/in/alexia-honig-6071851/',
       },
       claire: {
@@ -158,7 +161,7 @@ export const content = {
         photo: 'assets/images/claire-proce-blanchard.png',
         bio:
           "a men\u00e9 une carri\u00e8re de journaliste en presse \u00e9crite et digitale, occupant notamment des fonctions de chef de service et de r\u00e9dactrice en chef (Prisma Presse, M6\u2026). Convaincue que le lien gu\u00e9rit, elle en a fait un levier d\u2019ouverture et op\u00e9rationnel au c\u0153ur d\u2019organisations complexes en accompagnant dirigeants et \u00e9quipes \u00e0 recr\u00e9er de l\u2019alignement, au service du mieux-vivre au travail et de la dynamique collective. Ses forces\u00a0? Une intelligence sensible doubl\u00e9e d\u2019une exigence au service de ses clients, une finesse dans l\u2019analyse des comportements avec une capacit\u00e9 \u00e0 mettre les mots justes sur ce qui se joue.",
-        email: 'claire@avapartners.fr',
+        email: mail('claire', 'avapartners.fr'),
         linkedin: 'https://www.linkedin.com/in/claire-de-proc\u00e9-blanchard/',
       },
       certifications_label: 'Nos certifications\u00a0:',
@@ -297,10 +300,10 @@ export const content = {
     contact: {
       title: 'Contact',
       alexia_name: 'Alexia Honig',
-      alexia_email: 'alexia@avapartners.fr',
+      alexia_email: mail('alexia', 'avapartners.fr'),
       alexia_linkedin: 'https://www.linkedin.com/in/alexia-honig-6071851/',
       claire_name: 'Claire de Proc\u00e9-Blanchard',
-      claire_email: 'claire@avapartners.fr',
+      claire_email: mail('claire', 'avapartners.fr'),
       claire_linkedin: 'https://www.linkedin.com/in/claire-de-proc\u00e9-blanchard/',
       address: '75017 Paris',
       form: {
@@ -468,7 +471,7 @@ export const content = {
         photo: 'assets/images/alexia-honig.png',
         bio:
           'has lived in Africa, Asia and Europe, which has nurtured her deep curiosity for others and strengthened her listening and adaptability skills. Her career as a senior marketing executive in various cosmetics companies (Clarins, Dior, Ioma\u2026) forged her conviction that the energy and commitment of employees are the true assets of any organisation. She values diversity of perspectives and reveals the potential of each individual. She has a unique talent for identifying key transformation levers and creating connections between people.',
-        email: 'alexia@avapartners.fr',
+        email: mail('alexia', 'avapartners.fr'),
         linkedin: 'https://www.linkedin.com/in/alexia-honig-6071851/',
       },
       claire: {
@@ -477,7 +480,7 @@ export const content = {
         photo: 'assets/images/claire-proce-blanchard.png',
         bio:
           'built a career as a journalist in print and digital media, including roles as section editor and editor-in-chief (Prisma Presse, M6\u2026). Convinced that connection heals, she made it an operational and transformative lever within complex organisations, supporting executives and teams to rebuild alignment in service of well-being at work and collective momentum. Her strengths? A sensitive intelligence combined with a demanding approach in service of her clients, a sharp ability to analyse behaviours and find the right words for what is at play.',
-        email: 'claire@avapartners.fr',
+        email: mail('claire', 'avapartners.fr'),
         linkedin: 'https://www.linkedin.com/in/claire-de-proc\u00e9-blanchard/',
       },
       certifications_label: 'Our certifications:',
@@ -615,10 +618,10 @@ export const content = {
     contact: {
       title: 'Contact',
       alexia_name: 'Alexia Honig',
-      alexia_email: 'alexia@avapartners.fr',
+      alexia_email: mail('alexia', 'avapartners.fr'),
       alexia_linkedin: 'https://www.linkedin.com/in/alexia-honig-6071851/',
       claire_name: 'Claire de Proc\u00e9-Blanchard',
-      claire_email: 'claire@avapartners.fr',
+      claire_email: mail('claire', 'avapartners.fr'),
       claire_linkedin: 'https://www.linkedin.com/in/claire-de-proc\u00e9-blanchard/',
       address: 'Paris, France',
       form: {
