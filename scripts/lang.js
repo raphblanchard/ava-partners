@@ -47,13 +47,19 @@ function initHeroHighlights() {
   // Assigner un SVG différent à chaque accent (cycle sur 4)
   accents.forEach((el, i) => el.setAttribute('data-h', i % 4));
 
+  const reveal = () => accents.forEach((el, i) => {
+    setTimeout(() => el.classList.add('highlighted'), i * 280);
+  });
+
+  // Changement de langue après l'intro : surligner directement
+  if (_heroIntroDone) return reveal();
+
   // Déclencher le reveal une fois l'animation d'intro terminée
-  window.addEventListener('hero-intro-done', () => {
-    accents.forEach((el, i) => {
-      setTimeout(() => el.classList.add('highlighted'), i * 280);
-    });
-  }, { once: true });
+  window.addEventListener('hero-intro-done', reveal, { once: true });
 }
+
+let _heroIntroDone = false;
+window.addEventListener('hero-intro-done', () => { _heroIntroDone = true; }, { once: true });
 
 /* ==========================================================================
    Navigation

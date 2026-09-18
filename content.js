@@ -25,13 +25,13 @@ export const content = {
       title_part2: " d\u2019expertes de l\u2019accompagnement",
       title_line2: 'au service des dynamiques de transformation',
       col_left_p1:
-        "Nous, Claire et Alexia, accompagnons des <span class=\"text-accent\">dirigeants et managers</span>, des \u00e9quipes <span class=\"text-accent\">Codir et Comex</span> \u2013 en fran\u00e7ais ou en anglais \u2013 dans leurs besoins de soutien et de suivi dans des phases de <span class=\"text-accent\">croissance, de crise et/ou de transformation</span>.",
+        "<span class=\"text-accent\">L’incertitude est devenue le quotidien des entreprises</span> : moins de visibilité, des ressources contraintes et des transformations qui s’accélèrent, notamment avec l’IA.",
       col_left_p2:
-        "Nous fixons des indicateurs de r\u00e9ussite, qui soutiennent la mise en mouvement. En agissant sur le soft (<span class=\"text-accent\">dynamiques relationnelles</span>) et le hard (<span class=\"text-accent\">enjeux op\u00e9rationnels</span>), nous installons un climat apais\u00e9 qui renforce l\u2019efficacit\u00e9 collective et la performance.",
+        "Dans ce contexte, prendre du temps pour mieux travailler ensemble peut sembler secondaire face à l’urgence. Nous pensons exactement l’inverse. <span class=\"text-accent\">Quand les marges de manœuvre diminuent, les dysfonctionnements coûtent plus cher</span> : décisions qui s’enlisent, silos, non-dits, énergie mal dépensée.",
       col_right_p1:
-        "<span class=\"text-accent\">Intervenir ensemble</span> cr\u00e9e une richesse d\u2019analyse, de perspective et de prise de hauteur qui se r\u00e9pondent et se nourrissent pour un accompagnement <span class=\"text-accent\">plus fin, plus ajust\u00e9 et optimis\u00e9</span>.",
+        "C’est là que nous intervenons, en français comme en anglais, souvent en binôme : <span class=\"text-accent\">deux regards</span> pour saisir à la fois ce qui se dit et ce qui se joue, aller <span class=\"text-accent\">à l’essentiel et mobiliser l’équipe sur des temps courts et ciblés</span>.",
       col_right_p2:
-        "Notre duo est un syst\u00e8me face \u00e0 un syst\u00e8me, comme un miroir face \u00e0 votre organisation. Nous <span class=\"text-accent\">captons les subtilit\u00e9s</span> de ce qui se joue dans l\u2019organisation et <span class=\"text-accent\">guidons dans la complexit\u00e9</span>.",
+        "Quelques journées judicieusement espacées remettent une équipe en mouvement, fluidifient les relations et rendent au collectif toute sa capacité d’action. <span class=\"text-accent\">Ne sous-estimez pas la puissance de votre collectif ni sa capacité à évoluer.</span> Prenez le temps de vous y arrêter : vous serez surpris.",
       tagline:
         'Un accompagnement suivi et des livrables concrets pour des changements durables',
     },
@@ -344,13 +344,13 @@ export const content = {
       title_part2: ' of expert coaches',
       title_line2: 'driving organisational transformation',
       col_left_p1:
-        "We, Claire and Alexia, support executives and managers, ExCo and Board teams \u2013 in French or English \u2013 through their need for sustained support during periods of growth, crisis, and/or transformation.",
+        "<span class=\"text-accent\">Uncertainty has become everyday reality for businesses</span>: less visibility, constrained resources and accelerating transformations, not least with AI.",
       col_left_p2:
-        "We set success indicators that drive momentum. By acting on both the soft (relational dynamics) and the hard (operational challenges), we create a calmer climate that strengthens collective effectiveness and performance.",
+        "In this context, taking time to work better together may seem secondary in the face of urgency. We believe exactly the opposite. <span class=\"text-accent\">When room for manoeuvre shrinks, dysfunctions become more costly</span>: decisions that stall, silos, things left unsaid, energy poorly spent.",
       col_right_p1:
-        "Working together creates a richness of analysis, perspective and perspective that complement and enrich each other for a sharper, more attuned accompaniment that is deeply rooted in reality.",
+        "That is where we come in, in French or English, often as a pair: <span class=\"text-accent\">two perspectives</span> to grasp both what is being said and what is really at play, to <span class=\"text-accent\">get to the heart of the matter and mobilise the team through short, targeted sessions</span>.",
       col_right_p2:
-        "Our duo is a system facing a system \u2013 like a mirror held up to your organisation. We pick up on the subtleties of what is at play and guide through complexity.",
+        "A few well-spaced days set a team back in motion, ease relationships and restore the collective’s full capacity to act. <span class=\"text-accent\">Never underestimate the power of your team or its capacity to evolve.</span> Take the time to pause and look: you will be surprised.",
       tagline:
         'Sustained support and concrete deliverables for lasting change',
     },
