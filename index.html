@@ -1,29 +1,52 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- =====================================================================
+       FILET DE SÉCURITÉ D'AFFICHAGE (script inline : impossible à bloquer)
+
+       1. Pose la classe `js` sur <html>. Les animations d'apparition de
+          styles/animations.css ne masquent le contenu QUE sous cette classe.
+          Sans JavaScript, rien n'est masqué : le site reste lisible.
+
+       2. Si le JavaScript applicatif n'a pas démarré au bout de 3 secondes
+          (script bloqué par une extension, un proxy d'entreprise, un
+          antivirus, ou navigateur trop ancien), la classe est retirée et
+          tout le contenu redevient visible.
+       ===================================================================== -->
+  <script>
+    document.documentElement.classList.add('js');
+    window.setTimeout(function () {
+      if (!document.documentElement.hasAttribute('data-app-ready')) {
+        document.documentElement.classList.remove('js');
+        if (window.console && console.warn) {
+          console.warn('AvaPartners : JavaScript applicatif non démarré — affichage de secours activé.');
+        }
+      }
+    }, 3000);
+  </script>
 
   <!-- SEO -->
   <title>AvaPartners — Coaching &amp; Conseil en Transformation</title>
-  <meta name="description" content="AvaPartners, cabinet de coaching et conseil fondé par Alexia Honig et Claire de Procé-Blanchard. Accompagnement d'équipes, coaching individuel, ateliers CoDev et maillage professionnel." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://avapartners.fr/" />
+  <meta name="description" content="AvaPartners, cabinet de coaching et conseil fondé par Alexia Honig et Claire de Procé-Blanchard. Accompagnement d'équipes, coaching individuel, ateliers CoDev et maillage professionnel.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://avapartners.fr/">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://avapartners.fr/" />
-  <meta property="og:title" content="AvaPartners — Coaching &amp; Conseil en Transformation" />
-  <meta property="og:description" content="Un duo d'expertes de l'accompagnement au service des dynamiques de transformation." />
-  <meta property="og:image" content="https://avapartners.fr/assets/images/og-image.jpg" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avapartners.fr/">
+  <meta property="og:title" content="AvaPartners — Coaching &amp; Conseil en Transformation">
+  <meta property="og:description" content="Un duo d'expertes de l'accompagnement au service des dynamiques de transformation.">
+  <meta property="og:image" content="https://avapartners.fr/assets/images/og-image.jpg">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/components.css" />
-  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/animations.css">
 
   <!-- Favicon (à ajouter) -->
-  <link rel="icon" type="image/png" href="assets/images/logo-a.png" />
+  <link rel="icon" type="image/png" href="assets/images/logo-a.png">
 </head>
 <body>
 
@@ -34,7 +57,7 @@
     <div class="navbar-inner">
 
       <a href="#hero" class="navbar-logo" aria-label="AvaPartners — Accueil">
-        <img src="assets/images/logo-long.png" alt="AvaPartners" />
+        <img src="assets/images/logo-long.png" alt="AvaPartners">
       </a>
 
       <ul class="navbar-links" role="list">
@@ -79,24 +102,21 @@
     <div class="hero-content container">
 
       <div class="hero-header">
-        <h1 class="hero-title" data-hero="title">
-          Un <em>duo</em> d'expertes de l'accompagnement<br>
-          au service des dynamiques de transformation
-        </h1>
+        <h1 class="hero-title" data-hero="title">Un <em>duo</em> d’expertes de l’accompagnement<br>au service des dynamiques de transformation</h1>
       </div>
 
       <div class="hero-grid">
         <div class="hero-col-left">
-          <p class="body-text reveal" data-hero="col-left-p1"></p>
-          <p class="body-text reveal" style="margin-top: 16px;" data-hero="col-left-p2"></p>
+          <p class="body-text reveal" data-hero="col-left-p1"><span class="text-accent" data-h="0">L’incertitude est devenue le quotidien des entreprises</span>&nbsp;: moins de visibilité, des ressources contraintes et des transformations qui s’accélèrent, notamment avec l’IA.</p>
+          <p class="body-text reveal" style="margin-top: 16px;" data-hero="col-left-p2">Dans ce contexte, prendre du temps pour mieux travailler ensemble peut sembler secondaire face à l’urgence. Nous pensons exactement l’inverse. <span class="text-accent" data-h="1">Quand les marges de manœuvre diminuent, les dysfonctionnements coûtent plus cher</span>&nbsp;: décisions qui s’enlisent, silos, non-dits, énergie mal dépensée.</p>
         </div>
         <div class="hero-col-right">
-          <p class="body-text reveal" data-hero="col-right-p1"></p>
-          <p class="body-text reveal" style="margin-top: 16px;" data-hero="col-right-p2"></p>
+          <p class="body-text reveal" data-hero="col-right-p1">C’est là que nous intervenons, en français comme en anglais, souvent en binôme&nbsp;: <span class="text-accent" data-h="2">deux regards</span> pour saisir à la fois ce qui se dit et ce qui se joue, aller <span class="text-accent" data-h="3">à l’essentiel et mobiliser l’équipe sur des temps courts et ciblés</span>.</p>
+          <p class="body-text reveal" style="margin-top: 16px;" data-hero="col-right-p2">Quelques journées judicieusement espacées remettent une équipe en mouvement, fluidifient les relations et rendent au collectif toute sa capacité d’action. <span class="text-accent" data-h="0">Ne sous-estimez pas la puissance de votre collectif ni sa capacité à évoluer.</span> Prenez le temps de vous y arrêter&nbsp;: vous serez surpris.</p>
         </div>
       </div>
 
-      <p class="hero-tagline reveal" data-hero="tagline"></p>
+      <p class="hero-tagline reveal" data-hero="tagline">Un accompagnement suivi et des livrables concrets pour des changements durables</p>
 
     </div>
   </section>
@@ -109,19 +129,58 @@
     <div class="container">
 
       <div class="reveal">
-        <h2 class="section-title" data-interventions="title">
-          Nos <em>interventions</em>
-        </h2>
-        <p class="eyebrow section-eyebrow" data-interventions="eyebrow">Coaching · Conseil · Transformation</p>
+        <h2 class="section-title" data-interventions="title">Nos <em>interventions</em></h2>
+        <p class="eyebrow section-eyebrow" data-interventions="eyebrow">En français ou en anglais</p>
       </div>
 
       <div class="tabs-interventions">
-        <div class="tabs-nav" role="tablist" aria-label="Types d'interventions">
-          <!-- Onglets injectés par lang.js -->
-        </div>
-        <div class="tabs-content">
-          <!-- Panneaux injectés par lang.js -->
-        </div>
+        <div class="tabs-nav" role="tablist" aria-label="Types d'interventions"><button class="tab-btn active" data-tab="equipes" role="tab" aria-selected="true">Accompagnement d’équipes</button><button class="tab-btn" data-tab="individuel" role="tab" aria-selected="false">Accompagnement individuel</button><button class="tab-btn" data-tab="codev" role="tab" aria-selected="false">Ateliers CoDev</button><button class="tab-btn" data-tab="maillage" role="tab" aria-selected="false">Maillage professionnel</button></div>
+        <div class="tabs-content"><div class="tab-panel active" role="tabpanel"><div class="tab-content-single"><div class="tab-section reveal">
+      <h4>Pour qui&nbsp;?</h4>
+      <p>Comités exécutifs, Comités de direction, Comités opérationnels, Équipes métiers, Équipes internationales.</p>
+    </div><div class="tab-section reveal">
+      <h4>C’est le moment quand le collectif&nbsp;:</h4>
+      <ul><li>Vit un changement de cap, de stratégie, d’organisation</li><li>Subit une crise interne ou externe</li><li>Accueille et/ou voit partir des talents et/ou collaborateurs.</li></ul>
+    </div><div class="tab-section reveal">
+        <h4>Pour quoi&nbsp;?</h4>
+        <ul><li>Accompagner les dynamiques de transformation&nbsp;: croissance, réorganisation, gouvernance…</li><li>Actionner les leviers de réussite&nbsp;: vision, culture d’entreprise, mises en action…</li><li>Identifier et lever les freins&nbsp;: travail sur la cohésion, les prises de décision, les rôles flous…</li></ul>
+      </div><div class="tab-section reveal">
+        <h4>Comment travaillons-nous&nbsp;?</h4>
+        <p>Nous travaillons dans l’émergence, sur-mesure, avec le vivant.</p><ul><li>Un rendez-vous exploratoire avec le chef d’équipe, DG, PDG et&nbsp;/&nbsp;ou DRH, permet d’évoquer enjeux et modalités d’interventions.</li><li>Un premier diagnostic et une stratégie sont posés.</li><li>Le protocole d’intervention se co-construit avec le client.</li><li>L’accompagnement s’ajuste en temps réel aux enjeux internes et externes. Il mixe relationnel, opérationnel, plans d’actions concrets…</li><li>Nous proposons, six mois après la fin de l’accompagnement, un rendez-vous de suivi.</li><li>Nous générons de véritables prises de conscience grâce à une approche itérative. Une intervention ponctuelle d’une journée crée une dynamique, mais si elle est répétée, les liens évoluent et les changements durables s’ancrent.</li></ul>
+      </div></div></div><div class="tab-panel" role="tabpanel"><div class="tab-content-single"><div class="tab-section reveal">
+      <h4>Pour qui&nbsp;?</h4>
+      <p>Dirigeants d’entreprise, Top managers, Managers intermédiaires…</p>
+    </div><div class="tab-section reveal">
+        <h4>Pour quoi&nbsp;?</h4>
+        <ul><li>Prise de poste, élargissement de périmètre.</li><li>Posture de dirigeant/manager, communication, délégation, gestion opérationnelle…</li><li>Supervision de dirigeant, en parallèle ou non, d’un travail avec son collectif.</li></ul>
+      </div><div class="tab-section reveal">
+        <h4>Comment&nbsp;?</h4>
+        <ul><li>Un entretien exploratoire (sans engagement) permet de clarifier les besoins, poser les objectifs, les indicateurs…</li><li>Un plan d’accompagnement personnalisé est proposé. Sont décidés&nbsp;: le nombre estimatif de séances, la périodicité, le lieu des séances, des bilans intermédiaires si nécessaire.</li><li>Selon les besoins, nous mobilisons également notre réseau pour proposer des pairs de confiance.</li><li>Dans le cadre d’un coaching en entreprise, une séance tripartite de démarrage (avec le manager et/ou le DRH) et une séance de clôture seront prévues.</li></ul>
+      </div></div></div><div class="tab-panel" role="tabpanel"><div class="tab-content-single"><div class="tab-section reveal">
+      <h4>Pour qui&nbsp;?</h4>
+      <p>Managers et cadres, Équipes projets ou transverses, RH ou fonctions support, Collaborateurs en transition ou en développement.</p>
+    </div><div class="tab-section reveal">
+        <h4>Pour quoi&nbsp;?</h4>
+        <p>Le CoDev est une méthode d’apprentissage « entre pairs ». Elle stimule l’intelligence collective, développe les compétences et renforce la coopération autour de situations réelles telles que&nbsp;:</p><ul><li>Difficultés relationnelles ou managériales.</li><li>Questions d’organisation ou de posture.</li><li>Confiance en soi, assertivité, prise de recul, priorisation…</li></ul>
+      </div><div class="tab-section reveal">
+        <h4>Comment&nbsp;?</h4>
+        <ul><li>Le « client » – un participant – expose une situation.</li><li>Les “consultants” – les autres – contribuent par leurs questions, éclairages et suggestions.</li><li>La facilitatrice garantit le cadre, soutient les apprentissages et propose des apports théoriques si besoin.</li></ul>
+      </div><div class="tab-section reveal">
+      <h4>Format type&nbsp;:</h4>
+      <ul><li>1 séance par participant (ex&nbsp;: 6 personnes = 6 séances).</li><li>Durée&nbsp;: 2h à 2h30 selon la taille du groupe (taille maxi&nbsp;: 8 personnes).</li><li>Rôles tournants pour favoriser l’engagement et l’apprentissage collectif.</li></ul>
+    </div></div></div><div class="tab-panel" role="tabpanel"><div class="tab-content-single"><div class="tab-section reveal">
+      <h4>Pour qui&nbsp;?</h4>
+      <p>Nos clients et notre réseau professionnel car nous aimons connecter les bonnes personnes au bon moment.</p>
+    </div><div class="tab-section reveal">
+      <h4>C’est le moment quand un client souhaite&nbsp;:</h4>
+      <ul><li>Procéder à une embauche stratégique (un DG, une DRH…)</li><li>Se muscler sur un sujet, comme l’IA, l’innovation, la succession…</li><li>Faire une rencontre avec un expert technique d’un domaine.</li><li>Partager entre pairs&nbsp;: échanges de bonnes pratiques au sein d’un même secteur ou métier.</li></ul>
+    </div><div class="tab-section reveal">
+        <h4>Pour quoi&nbsp;?</h4>
+        <p>Créer des passerelles, provoquer des rencontres, activer les synergies&nbsp;: c’est une autre manière pour nous d’accompagner la transformation.</p>
+      </div><div class="tab-section reveal">
+        <h4>Comment&nbsp;?</h4>
+        <p>Nous partons des besoins exprimés (et parfois implicites), pour faciliter des rencontres pertinentes et porteuses de sens. Nous jouons un rôle de tiers de confiance.</p>
+      </div></div></div></div>
       </div>
 
     </div>
@@ -135,24 +194,22 @@
     <div class="container">
 
       <div class="reveal" style="text-align:center; margin-bottom: 16px;">
-        <h2 class="section-title" data-about="title">
-          Qui sommes <em>nous&nbsp;?</em>
-        </h2>
+        <h2 class="section-title" data-about="title">Qui sommes-<em>nous?</em></h2>
       </div>
 
-      <p class="about-intro reveal" data-about="intro"></p>
+      <p class="about-intro reveal" data-about="intro">Un vécu professionnel d’environ 20 ans chacune nous confère une compréhension fine des organisations et des équilibres parfois fragiles entre le business et l’humain.</p>
 
       <div class="about-grid">
 
         <!-- Alexia -->
         <div class="about-person reveal-left">
           <div class="about-header">
-            <img class="about-photo" src="assets/images/alexia-honig.png" alt="Alexia Honig" loading="lazy"/>
+            <img class="about-photo" src="assets/images/alexia-honig.png" alt="Alexia Honig" loading="lazy">
             <h3 class="about-name" data-about="alexia-name">Alexia Honig</h3>
           </div>
-          <p class="about-bio" data-about="alexia-bio"></p>
+          <p class="about-bio" data-about="alexia-bio">a vécu en Afrique, en Asie et en Europe, ce qui a nourri sa curiosité profonde pour les autres et renforcé ses capacités d’écoute et d’adaptabilité. Sa carrière en tant que cadre marketing dirigeant dans différentes entreprises de cosmétiques (Clarins, Dior, Ioma…) a forgé sa conviction que l’énergie et l’engagement des collaborateurs sont les véritables atouts d’une organisation. Elle valorise la diversité des points de vue et révèle le potentiel de chacun. Elle possède un talent unique pour identifier les leviers clés de transformation et pour créer des connexions entre les personnes.</p>
           <div class="about-links">
-            <a href="#" data-about="alexia-email"></a>
+            <a href="#" data-about="alexia-email" data-email-user="alexia" data-email-domain="avapartners.fr"></a><span class="email-fallback email-fallback--about" data-email-fallback="">alexia&#64;avapartners&#46;fr</span>
             <a href="https://www.linkedin.com/in/alexia-honig-6071851/" target="_blank" rel="noopener" data-about="alexia-linkedin">LinkedIn ↗</a>
           </div>
         </div>
@@ -160,12 +217,12 @@
         <!-- Claire -->
         <div class="about-person reveal-right">
           <div class="about-header">
-            <img class="about-photo" src="assets/images/claire-proce-blanchard.png" alt="Claire de Procé-Blanchard" loading="lazy"/>
+            <img class="about-photo" src="assets/images/claire-proce-blanchard.png" alt="Claire de Procé-Blanchard" loading="lazy">
             <h3 class="about-name" data-about="claire-name">Claire de Procé-Blanchard</h3>
           </div>
-          <p class="about-bio" data-about="claire-bio"></p>
+          <p class="about-bio" data-about="claire-bio">a mené une carrière de journaliste en presse écrite et digitale, occupant notamment des fonctions de chef de service et de rédactrice en chef (Prisma Presse, M6…). Convaincue que le lien guérit, elle en a fait un levier d’ouverture et opérationnel au cœur d’organisations complexes en accompagnant dirigeants et équipes à recréer de l’alignement, au service du mieux-vivre au travail et de la dynamique collective. Ses forces&nbsp;? Une intelligence sensible doublée d’une exigence au service de ses clients, une finesse dans l’analyse des comportements avec une capacité à mettre les mots justes sur ce qui se joue.</p>
           <div class="about-links">
-            <a href="#" data-about="claire-email"></a>
+            <a href="#" data-about="claire-email" data-email-user="claire" data-email-domain="avapartners.fr"></a><span class="email-fallback email-fallback--about" data-email-fallback="">claire&#64;avapartners&#46;fr</span>
             <a href="https://www.linkedin.com/in/claire-de-procé-blanchard/" target="_blank" rel="noopener" data-about="claire-linkedin">LinkedIn ↗</a>
           </div>
         </div>
@@ -174,8 +231,8 @@
 
       <!-- Certifications -->
       <div class="certifications-block reveal">
-        <span class="cert-label" data-about="cert-label">Nos certifications :</span>
-        <p data-about="certifications"></p>
+        <span class="cert-label" data-about="cert-label">Nos certifications&nbsp;:</span>
+        <p data-about="certifications">Coach RNCP&nbsp;· Coach &amp; Team Transformance Pro&nbsp;· Outil DISC &amp; Forces Motrices&nbsp;· Analyse Transactionnelle 101&nbsp;· Élément Humain W. Schutz M1 &amp; M2&nbsp;· Analyse systémique&nbsp;· Pratiques narratives&nbsp;· Coaching d’organisation&nbsp;· Codev.</p>
       </div>
 
     </div>
@@ -189,15 +246,41 @@
     <div class="container">
 
       <div class="reveal">
-        <h2 class="section-title" data-values="title">
-          Nos <em>valeurs</em>
-        </h2>
-        <p class="section-subtitle" data-values="subtitle"></p>
+        <h2 class="section-title" data-values="title">Nos <em>valeurs</em></h2>
+        <p class="section-subtitle" data-values="subtitle">Leviers concrets pour des changements durables, et incarnées par notre duo, elles sont au service de nos clients.</p>
       </div>
 
       <div class="values-grid" data-values="grid">
-        <!-- Cards injectées par lang.js -->
-      </div>
+    <div class="value-card">
+      <span class="value-number">01</span>
+      <h3>L’authenticité</h3>
+      <p>favorise la confiance et l’ouverture.</p>
+    </div>
+  
+    <div class="value-card">
+      <span class="value-number">02</span>
+      <h3>Le plaisir</h3>
+      <p>booste la motivation et l’émulation.</p>
+    </div>
+  
+    <div class="value-card">
+      <span class="value-number">03</span>
+      <h3>L’humilité</h3>
+      <p>valorise l’expertise et le savoir-être de nos clients.</p>
+    </div>
+  
+    <div class="value-card">
+      <span class="value-number">04</span>
+      <h3>L’abondance</h3>
+      <p>au sens du partage, de la mise en lien, de la coopération.</p>
+    </div>
+  
+    <div class="value-card">
+      <span class="value-number">05</span>
+      <h3>L’engagement</h3>
+      <p>vise à optimiser la performance, avec une attention portée aux détails.</p>
+    </div>
+  </div>
 
     </div>
   </section>
@@ -210,15 +293,31 @@
     <div class="manifesto-decor" aria-hidden="true"></div>
     <div class="container">
 
-      <h2 class="section-title reveal" data-manifesto="title">Manifesto</h2>
+      <h2 class="section-title reveal" data-manifesto="title">Notre <em>manifesto</em></h2>
 
       <div class="manifesto-grid">
         <div data-manifesto="col-left">
-          <!-- Injecté par lang.js -->
-        </div>
+      <div class="manifesto-item reveal-left">
+        <span class="manifesto-bullet"></span>
+        <p><mark class="manifesto-highlight" data-h="0">Nous croyons</mark> en la dynamique de notre duo qui assure une exploration plus profonde et plus nuancée des défis auxquels nos clients sont confrontés.</p>
+      </div>
+    
+      <div class="manifesto-item reveal-left">
+        <span class="manifesto-bullet"></span>
+        <p><mark class="manifesto-highlight" data-h="1">Nous croyons</mark> en un engagement réciproque, construit dans le temps et à la mesure des besoins. Car les transformations profondes demandent de la constance, des étapes et des pauses.</p>
+      </div>
+    </div>
         <div data-manifesto="col-right">
-          <!-- Injecté par lang.js -->
-        </div>
+      <div class="manifesto-item reveal-right">
+        <span class="manifesto-bullet"></span>
+        <p><mark class="manifesto-highlight" data-h="2">Nous croyons</mark> en l’approche systémique qui nous permet de naviguer entre les besoins émotionnels et rationnels, assurant un équilibre entre le soft et le hard dans notre accompagnement.</p>
+      </div>
+    
+      <div class="manifesto-item reveal-right">
+        <span class="manifesto-bullet"></span>
+        <p><mark class="manifesto-highlight" data-h="3">Nous cultivons</mark> l’ouverture pour faire émerger un collectif vivant et fécond. C’est dans cet espace que peuvent se déployer les questionnements, les confrontations constructives et des liens plus authentiques. De façon à renforcer sa capacité à s’ajuster, à évoluer et à faire face aux transformations.</p>
+      </div>
+    </div>
       </div>
 
     </div>
@@ -232,43 +331,169 @@
     <div class="container">
 
       <div class="reveal">
-        <h2 class="section-title" data-testimonials="title">
-          Nos clients <em>témoignent</em>
-        </h2>
+        <h2 class="section-title" data-testimonials="title">Nos clients <em>témoignent</em></h2>
       </div>
 
       <!-- Logos clients — défilement infini -->
       <div class="testimonials-logos-track reveal" aria-hidden="true">
         <div class="logos-marquee">
-          <img src="assets/images/logos/dior.png"     alt="Dior"     loading="lazy" />
-          <img src="assets/images/logos/clarins.png"  alt="Clarins"  loading="lazy" />
-          <img src="assets/images/logos/eiffage.png"  alt="Eiffage Concessions" loading="lazy" />
-          <img src="assets/images/logos/cdv.png"      alt="Cercle des Voyages"  loading="lazy" />
-          <img src="assets/images/logos/alisea.png"   alt="Alisea"   loading="lazy" />
-          <img src="assets/images/logos/chic.png"     alt="Agence Chic" loading="lazy" />
-          <img src="assets/images/logos/viquel.png"   alt="Viquel"   loading="lazy" />
-          <img src="assets/images/logos/onepoint.png" alt="Onepoint" loading="lazy" />
-          <img src="assets/images/logos/vap.png"      alt="VAP"      loading="lazy" />
+          <img src="assets/images/logos/dior.png" alt="Dior" loading="lazy">
+          <img src="assets/images/logos/clarins.png" alt="Clarins" loading="lazy">
+          <img src="assets/images/logos/eiffage.png" alt="Eiffage Concessions" loading="lazy">
+          <img src="assets/images/logos/cdv.png" alt="Cercle des Voyages" loading="lazy">
+          <img src="assets/images/logos/alisea.png" alt="Alisea" loading="lazy">
+          <img src="assets/images/logos/chic.png" alt="Agence Chic" loading="lazy">
+          <img src="assets/images/logos/viquel.png" alt="Viquel" loading="lazy">
+          <img src="assets/images/logos/onepoint.png" alt="Onepoint" loading="lazy">
+          <img src="assets/images/logos/vap.png" alt="VAP" loading="lazy">
         </div>
         <!-- Doublon pour boucle seamless -->
         <div class="logos-marquee" aria-hidden="true">
-          <img src="assets/images/logos/dior.png"     alt="" loading="lazy" />
-          <img src="assets/images/logos/clarins.png"  alt="" loading="lazy" />
-          <img src="assets/images/logos/eiffage.png"  alt="" loading="lazy" />
-          <img src="assets/images/logos/cdv.png"      alt="" loading="lazy" />
-          <img src="assets/images/logos/alisea.png"   alt="" loading="lazy" />
-          <img src="assets/images/logos/chic.png"     alt="" loading="lazy" />
-          <img src="assets/images/logos/viquel.png"   alt="" loading="lazy" />
-          <img src="assets/images/logos/onepoint.png" alt="" loading="lazy" />
-          <img src="assets/images/logos/vap.png"      alt="" loading="lazy" />
+          <img src="assets/images/logos/dior.png" alt="" loading="lazy">
+          <img src="assets/images/logos/clarins.png" alt="" loading="lazy">
+          <img src="assets/images/logos/eiffage.png" alt="" loading="lazy">
+          <img src="assets/images/logos/cdv.png" alt="" loading="lazy">
+          <img src="assets/images/logos/alisea.png" alt="" loading="lazy">
+          <img src="assets/images/logos/chic.png" alt="" loading="lazy">
+          <img src="assets/images/logos/viquel.png" alt="" loading="lazy">
+          <img src="assets/images/logos/onepoint.png" alt="" loading="lazy">
+          <img src="assets/images/logos/vap.png" alt="" loading="lazy">
         </div>
       </div>
 
       <!-- Slider -->
       <div class="slider-wrapper reveal">
         <div class="slider-track">
-          <!-- Slides injectées par lang.js -->
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Travailler avec Alexia et Claire lors de l’onboarding de l’équipe Dior Backstage Pros a été une expérience exceptionnelle. Leur accompagnement a joué un rôle clé dans l’unification du groupe autour d’une mission commune, favorisant la confiance et la cohésion. Grâce à leur approche éclairée, l’équipe a su adopter sa nouvelle mission avec clarté et enthousiasme, posant ainsi les bases d’une collaboration forte et inspirante.</blockquote>
+        <div class="testimonial-author">
+          <strong>Sharon Zarfati</strong>
+          <span>International Head of Retail Education, DIOR Make up</span>
         </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Claire a contribué pour notre Groupe à animer des groupes de managers en co-développement. Dans ce processus d’apprentissage entre pairs, Claire a pu leur permettre de cultiver leur posture managériale et de consolider leur identité professionnelle. Les retours ont été très positifs, mettant en valeur la capacité de Claire à faire bouger les managers.</blockquote>
+        <div class="testimonial-author">
+          <strong>Isabelle Lovett</strong>
+          <span>DRH Prospective et management des compétences, AG2R La Mondiale</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Brillante et d’une grande sensibilité, Claire a très vite compris mes enjeux et m’a bousculée, toujours avec bienveillance. Son accompagnement sans jugement m’a permis d’avancer, de prendre des décisions stratégiques, et surtout de regarder la réalité en face. Je me suis toujours sentie soutenue, même dans les moments les plus difficiles. J’ai aussi pris conscience de mon rapport très affectif avec mes collaborateurs, et de la façon dont cela affaiblissait ma posture de dirigeante. Un coaching puissant, lucide et profondément humain.</blockquote>
+        <div class="testimonial-author">
+          <strong>Nathalie Serfaty</strong>
+          <span>Fondatrice et dirigeante de VAP, société de conciergerie privée</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>L’accompagnement d’Alexia en coaching individuel m’a permis d’aborder ma prise de poste avec clarté, confiance et sérénité. En rejoignant l’entreprise familiale, j’ai su affirmer ma place tout en marquant mon empreinte auprès des équipes en place. Le coaching de mon équipe rapprochée, mené par la suite, a renforcé la cohésion et amélioré la communication entre les collaborateurs. Aujourd’hui, nous poursuivons notre chemin avec une dynamique collective renouvelée.</blockquote>
+        <div class="testimonial-author">
+          <strong>Mélanie Viquel</strong>
+          <span>Directrice du Développement, Viquel</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Grâce à l’accompagnement d’Alexia, j’ai pu franchir un cap, prendre du recul et de la hauteur stratégique pour réaligner mes priorités dans un contexte de transformation exigeant. Son regard pragmatique et bienveillant m’a permis de renforcer mon impact en tant que leader.</blockquote>
+        <div class="testimonial-author">
+          <strong>Mohamed Benkhodja</strong>
+          <span>People Experience Leader, Onepoint</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>J’ai eu l’opportunité de travailler à deux reprises avec Alexia et Claire, en tant que DRH de Région au sein de Clarins, dans mon ancien poste. La complémentarité et le professionnalisme de leur binôme ont été des atouts majeurs dans les deux cas d’expérience, que je définirais de “métamorphose” d’équipe. La dynamique qui s’est instaurée depuis le début entre nous trois – ayant formé un vrai squad – a été un élément de stabilité et d’ancrage important pour la réussite de ces projets d’accompagnement. La confiance mutuelle, l’échange authentique, l’avoir à cœur les enjeux humains de l’équipe. Merci AVA Partners pour votre accompagnement généreux, attentionné et efficace.</blockquote>
+        <div class="testimonial-author">
+          <strong>Ilaria Gigou</strong>
+          <span>Founder and Managing Director, Workescape</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Le travail avec Ava me permet de clarifier ma compréhension des modes de fonctionnement de notre organisation et de pouvoir mieux activer les ressources de développement qu’elle révèle. C’est pour nous un travail en profondeur et aussi un soutien pertinent dans le choix des leviers de management à prioriser.</blockquote>
+        <div class="testimonial-author">
+          <strong>Arnaud Gastelu</strong>
+          <span>Co-owner, Alisea Corporate Finance</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Le duo Claire &amp; Alexia fonctionne à merveille. Leur complémentarité apporte rythme, clarté et profondeur. Grâce à leur approche à deux voix, toujours fluide et bienveillante, elles ont su recréer du lien au sein de notre ComOp, casser les silos post-Covid et ouvrir un nouvel espace de dialogue constructif. Leur posture est à la fois facilitante et accessible, et les séminaires qu’elles ont animés – tout comme les temps d’échanges avec moi en tant que dirigeante – ont été d’une grande justesse. Un vrai tandem au service de l’intelligence collective. Et en prime, quand un maillon manque ou qu’il y a un “trou dans la raquette” côté management, elles savent proposer les bonnes mises en relation, avec des expertes ciblées et efficaces.</blockquote>
+        <div class="testimonial-author">
+          <strong>Rose-Marie Farrugia</strong>
+          <span>PDG, Cercle des Vacances</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Alexia et Claire sont animées par une bienveillance profonde et une authenticité sans détour. Elles savent créer un espace sûr, où chacun peut exprimer son monde en toute confiance. Leur complémentarité puissante, alliée à une présence juste et engagée, leur permet d’accompagner le groupe avec douceur tout en osant nommer ce qui entrave&nbsp;: les non-dits, les tensions, les dysfonctionnements. Sans jamais juger, elles offrent un miroir sincère, stimulant la prise de conscience individuelle et collective. Ce faisant, elles ouvrent le chemin vers une cohésion plus forte, une dynamique plus saine, où le collectif se (re)construit dans la confiance, la responsabilité et la clarté.</blockquote>
+        <div class="testimonial-author">
+          <strong>Patrick Chavanne</strong>
+          <span>Directeur Général, Clarins Suisse</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Alexia et Claire sont intervenues au sein de notre structure à un moment de transformation profonde&nbsp;: mise en place d’une nouvelle gouvernance, repositionnement stratégique, évolution de l’offre, le tout dans un contexte humain et business exigeant, après 15 ans d’existence. Un terrain de jeu complexe, qu’elles ont su appréhender avec une grande finesse. Elles se sont distinguées par la justesse de leur analyse, une excellente compréhension de notre culture d’entreprise et une lecture subtile des équilibres en place. Nous avons particulièrement valorisé leur capacité à nous coacher en tant que binôme de dirigeantes, avec ses forces et ses complémentarités. Alexia et Claire savent guider le collectif avec empathie mais sans complaisance, ce qui est précieux et rare.</blockquote>
+        <div class="testimonial-author">
+          <strong>Beatrice Pierrard &amp; Fanny Ponsot</strong>
+          <span>DG &amp; DGA, Agence Chic</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Ce que j’ai aimé d’Alexia et Claire est leur écoute. Elles ont passé beaucoup de temps à creuser et connaître chaque membre du comité de direction et nos dynamiques de Groupe avant de nous proposer un plan d’action personnalisé et adapté à nos besoins. Pendant le déroulé j’ai toujours eu un retour précis et nous avons passé du temps à l’analyse et l’ajustement si nécessaire. Au-delà de tout ça, le plus important sont les résultats. Mon comité de direction s’est transformé d’un groupe d’individus méfiants et pas trop motivés à une véritable équipe, qui partage un objectif clair, avec confiance les uns dans les autres et qui éprouvent un véritable plaisir à travailler ensemble.</blockquote>
+        <div class="testimonial-author">
+          <strong>Julio Quiroga</strong>
+          <span>Président EMEA and LATAM, Clarins Group</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>Ce coaching d’équipe a été très bénéfique pour notre groupe de directeurs financiers. L’approche complémentaire des deux coachs nous a permis de créer un environnement de confiance favorable aux échanges et à une communication efficace. Le cadre, à la fois sérieux et professionnel, avec une pointe de légèreté, a aidé à renforcer les liens et à encourager la coopération. Aujourd’hui, les échanges sont plus harmonieux, les bonnes pratiques sont mieux partagées, et nous ressentons appartenir à un réseau solidaire. Une expérience aussi stimulante que productive, que je recommande vivement.</blockquote>
+        <div class="testimonial-author">
+          <strong>Cherif Rebai</strong>
+          <span>CFO</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="slide">
+      <div class="testimonial-card">
+        <blockquote>J’ai eu grand plaisir à collaborer à plusieurs reprises avec le duo formidable formé par Alexia et Claire. J’ai toujours pensé que deux têtes valaient mieux qu’une, et une fois encore, elles m’en ont apporté la preuve&nbsp;! Elles savent faire émerger l’essentiel d’un travail collectif avec intelligence et finesse. Travailler avec elles est un vrai bonheur&nbsp;: curieuses, vives, ouvertes, efficaces, elles font preuve d’une capacité d’adaptation exceptionnelle.</blockquote>
+        <div class="testimonial-author">
+          <strong>Nathalie K.</strong>
+          <span>Agence culturelle NathKlo Connections, ex-directrice Marque et Communication Cultura</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
         <div class="slider-controls">
           <button class="slider-btn slider-btn-prev" aria-label="Témoignage précédent">
@@ -301,9 +526,7 @@
 
           <div class="contact-person reveal">
             <h3 data-contact="alexia-name">Alexia Honig</h3>
-            <a href="#" data-contact="alexia-email">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </a>
+            <a href="#" data-contact="alexia-email" data-email-user="alexia" data-email-domain="avapartners.fr"></a><span class="email-fallback email-fallback--contact" data-email-fallback="">alexia&#64;avapartners&#46;fr</span>
             <a href="https://www.linkedin.com/in/alexia-honig-6071851/" target="_blank" rel="noopener" data-contact="alexia-linkedin">
               <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               LinkedIn
@@ -312,9 +535,7 @@
 
           <div class="contact-person reveal">
             <h3 data-contact="claire-name">Claire de Procé-Blanchard</h3>
-            <a href="#" data-contact="claire-email">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </a>
+            <a href="#" data-contact="claire-email" data-email-user="claire" data-email-domain="avapartners.fr"></a><span class="email-fallback email-fallback--contact" data-email-fallback="">claire&#64;avapartners&#46;fr</span>
             <a href="https://www.linkedin.com/in/claire-de-procé-blanchard/" target="_blank" rel="noopener" data-contact="claire-linkedin">
               <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               LinkedIn
@@ -329,75 +550,46 @@
 
         <!-- Formulaire -->
         <div class="reveal-right">
-          <form
-            id="contact-form"
-            class="contact-form"
-            novalidate
-          >
+
+          <!-- Repli si le JavaScript est bloqué : le formulaire ne peut pas
+               fonctionner (envoi assuré par EmailJS) et le soumettre ferait
+               passer les données saisies dans l'URL. On l'escamote et on
+               oriente vers les adresses email affichées juste au-dessus. -->
+          <p class="contact-form-fallback">
+            Le formulaire de contact nécessite JavaScript, qui semble bloqué sur
+            votre navigateur. Écrivez-nous directement aux adresses ci-dessus,
+            nous vous répondrons avec plaisir.
+          </p>
+
+          <form id="contact-form" class="contact-form" novalidate="" data-success-msg="Votre message a bien été envoyé&nbsp;! Nous vous répondrons très vite." data-error-msg="Une erreur s’est produite. Veuillez réessayer.">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstname">Prénom</label>
-                <input
-                  type="text"
-                  id="firstname"
-                  name="firstname"
-                  placeholder="Prénom"
-                  required
-                  data-form="firstname"
-                />
+                <input type="text" id="firstname" name="firstname" placeholder="Prénom" required="" data-form="firstname">
               </div>
               <div class="form-group">
                 <label for="lastname">Nom</label>
-                <input
-                  type="text"
-                  id="lastname"
-                  name="lastname"
-                  placeholder="Nom"
-                  required
-                  data-form="lastname"
-                />
+                <input type="text" id="lastname" name="lastname" placeholder="Nom" required="" data-form="lastname">
               </div>
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required
-                data-form="email"
-              />
+              <input type="email" id="email" name="email" placeholder="Email" required="" data-form="email">
             </div>
 
             <div class="form-group">
               <label for="phone">Téléphone</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Téléphone"
-                data-form="phone"
-              />
+              <input type="tel" id="phone" name="phone" placeholder="Téléphone" data-form="phone">
             </div>
 
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Message"
-                required
-                rows="5"
-                data-form="message"
-              ></textarea>
+              <textarea id="message" name="message" placeholder="Message" required="" rows="5" data-form="message"></textarea>
             </div>
 
             <div class="form-submit">
-              <button type="submit" class="btn btn-primary" data-form="submit">
-                ENVOYER
-              </button>
+              <button type="submit" class="btn btn-primary" data-form="submit">ENVOYER</button>
             </div>
 
             <div class="form-message" role="alert" aria-live="polite"></div>
@@ -416,7 +608,7 @@
     <div class="footer-inner">
 
       <a href="#hero" class="footer-logo" aria-label="AvaPartners — Haut de page">
-        <img src="assets/images/logo-long.png" alt="AvaPartners" />
+        <img src="assets/images/logo-long.png" alt="AvaPartners">
       </a>
 
       <nav class="footer-links" aria-label="Liens légaux">
@@ -433,28 +625,63 @@
   <!-- =====================================================================
        SCRIPTS
        ===================================================================== -->
+  <!-- Reconstruction des adresses email (anti-scraping).
+       Script classique et indépendant des modules : les emails s'affichent
+       même si le rendu dynamique échoue. -->
+  <script src="scripts/email-protect.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="module">
     import { renderPage, initLangToggle } from './scripts/lang.js';
-    import { initScrollAnimations, initSlider, initTabsMobileStepper } from './scripts/main.js';
+    import { initScrollAnimations, initSlider, initTabsMobileStepper, revealEverything } from './scripts/main.js';
 
-    // Rendre la page (injecte le contenu dynamique)
-    renderPage();
+    // Chaque étape est isolée : si l'une échoue, les autres s'exécutent quand même.
+    // Le contenu statique déjà présent dans le HTML sert alors de repli.
+    const etape = (nom, fn) => {
+      try {
+        fn();
+      } catch (err) {
+        console.error(`AvaPartners — échec de l'étape "${nom}" :`, err);
+      }
+    };
+
+    // Rendre la page (réinjecte le contenu depuis content.js)
+    etape('rendu du contenu', renderPage);
+
+    // Les adresses email ont été injectées : le repli statique fait double emploi.
+    etape('nettoyage des replis email', () => {
+      document.querySelectorAll('[data-email-fallback]').forEach(repli => {
+        const lien = repli.previousElementSibling;
+        if (lien && (lien.getAttribute('href') || '').startsWith('mailto:')) repli.remove();
+      });
+    });
+
+    // Le JS applicatif a démarré : le filet de sécurité du <head> se désarme.
+    document.documentElement.setAttribute('data-app-ready', '');
 
     // Init animations APRÈS injection du contenu
     // (initSlider est déclenché via reinit-slider depuis renderTestimonials)
-    initScrollAnimations();
-    initLangToggle();
-    initTabsMobileStepper();
+    try {
+      initScrollAnimations();
+    } catch (err) {
+      console.error('AvaPartners — animations indisponibles, affichage forcé :', err);
+      revealEverything();
+    }
+
+    etape('sélecteur de langue', initLangToggle);
+    etape('onglets mobile', initTabsMobileStepper);
 
     // Ré-init animations après changement de langue
     window.addEventListener('reinit-animations', () => {
       document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-fade, .reveal-scale')
-        .forEach(el => el.classList.remove('visible'));
-      initScrollAnimations();
-      initTabsMobileStepper();
+        .forEach(el => el.classList.remove('visible', 'force-visible'));
+      try {
+        initScrollAnimations();
+      } catch (err) {
+        console.error('AvaPartners — animations indisponibles, affichage forcé :', err);
+        revealEverything();
+      }
+      etape('onglets mobile', initTabsMobileStepper);
     });
   </script>
-
-</body>
-</html>
+</body></html>

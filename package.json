@@ -1,0 +1,14 @@
+{
+  "name": "avapartners",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site vitrine AvaPartners — statique, sans framework.",
+  "scripts": {
+    "prerender": "node scripts/prerender.mjs",
+    "serve": "python3 serve.py"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

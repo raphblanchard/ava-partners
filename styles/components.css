@@ -1334,3 +1334,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   REPLI EMAIL SANS JAVASCRIPT
+   Les adresses sont normalement reconstruites à l'exécution (anti-scraping).
+   Ce repli statique prend le relais si le JavaScript est bloqué : la classe
+   `js` est alors absente de <html> et l'adresse redevient visible.
+   ========================================================================== */
+.email-fallback {
+  display: inline-block;
+  user-select: all;
+}
+
+.js .email-fallback {
+  display: none;
+}
+
+.email-fallback--about {
+  font-size: 13px;
+  color: var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 1px;
+}
+
+.email-fallback--contact {
+  font-size: 14px;
+  color: var(--color-text-mid);
+  margin-bottom: 6px;
+}
+
+/* Repli du formulaire de contact quand le JavaScript est bloqué. */
+.contact-form-fallback {
+  display: block;
+  padding: 20px 24px;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-mid);
+}
+
+.js .contact-form-fallback {
+  display: none;
+}
+
+.contact-form {
+  display: none;
+}
+
+.js .contact-form {
+  display: block;
+}

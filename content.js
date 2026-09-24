@@ -1,6 +1,15 @@
 // content.js — Tout le contenu textuel du site AvaPartners
 // Structuré FR/EN pour migration Sanity (Phase 2)
-// NE PAS mettre de texte directement dans index.html
+//
+// ⚠️  NE JAMAIS écrire de texte à la main dans index.html : ce fichier est
+//     l'unique source de vérité.
+//
+// ⚠️  APRÈS TOUTE MODIFICATION ICI, LANCER :  npm run prerender
+//     Cette commande recopie le texte français dans index.html afin que le
+//     site reste lisible même si le JavaScript est bloqué (extension, proxy
+//     d'entreprise, antivirus) — et pour que Google voie du vrai contenu.
+//     Sans cette commande, le site fonctionne toujours, mais index.html
+//     contient une version périmée du texte de secours.
 
 // Émails reconstruits à l'exécution (anti-scraping) : jamais en clair dans le code source
 const mail = (user, domain) => `${user}@${domain}`;

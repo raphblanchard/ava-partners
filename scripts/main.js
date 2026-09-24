@@ -147,27 +147,96 @@ function initActiveNavLinks() {
 /* ==========================================================================
    SCROLL ANIMATIONS — Intersection Observer
    ========================================================================== */
-function initScrollAnimations() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // One-shot
-      }
-    });
-  }, { threshold: 0.12 });
+const REVEAL_SELECTOR = '.reveal, .reveal-left, .reveal-right, .reveal-fade, .reveal-scale';
 
-  const selectors = [
-    '.reveal',
-    '.reveal-left',
-    '.reveal-right',
-    '.reveal-fade',
-    '.reveal-scale',
-  ];
+// Délai (ms) au bout duquel on force l'affichage de tout élément resté masqué.
+const REVEAL_FAILSAFE_DELAY = 2500;
 
-  document.querySelectorAll(selectors.join(',')).forEach(el => {
-    observer.observe(el);
+/**
+ * Secours : rend visible tout élément encore masqué.
+ * Appelé si l'IntersectionObserver n'existe pas, échoue, ou n'a rien déclenché.
+ */
+export function revealEverything() {
+  document.querySelectorAll(REVEAL_SELECTOR).forEach(el => {
+    el.classList.add('visible', 'force-visible');
   });
+}
+
+function initScrollAnimations() {
+  const elements = document.querySelectorAll(REVEAL_SELECTOR);
+
+  // Navigateur ancien sans IntersectionObserver : on affiche tout, point.
+  if (typeof IntersectionObserver === 'undefined') {
+    revealEverything();
+    return;
+  }
+
+  try {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // One-shot
+        }
+      });
+    }, { threshold: 0.12 });
+
+    elements.forEach(el => observer.observe(el));
+  } catch (err) {
+    // Si l'observer casse pour une raison quelconque, on n'abandonne pas le visiteur.
+    console.error('Scroll animations indisponibles, affichage forcé :', err);
+    revealEverything();
+    return;
+  }
+
+  planifierFiletDeSecurite();
+}
+
+/**
+ * Filet de sécurité de l'affichage.
+ *
+ * Au bout de REVEAL_FAILSAFE_DELAY on vérifie que l'IntersectionObserver a
+ * bien fait son travail :
+ *
+ *   - AUCUN élément révélé  -> l'observer ne fonctionne pas (onglet rendu en
+ *     arrière-plan, moteur exotique, extension intrusive...). On affiche tout.
+ *   - Révélation partielle  -> on rattrape les éléments déjà dans la fenêtre
+ *     mais restés masqués.
+ *
+ * Si la page est en arrière-plan au moment du contrôle, on ne conclut rien
+ * (l'observer ne peut pas se déclencher) : on repousse le contrôle au moment
+ * où l'onglet revient au premier plan, pour ne pas sacrifier les animations.
+ */
+function planifierFiletDeSecurite() {
+  window.setTimeout(() => {
+    if (document.hidden) {
+      document.addEventListener('visibilitychange', function auRetour() {
+        if (document.hidden) return;
+        document.removeEventListener('visibilitychange', auRetour);
+        planifierFiletDeSecurite();
+      });
+      return;
+    }
+
+    const elements = [...document.querySelectorAll(REVEAL_SELECTOR)];
+    if (!elements.length) return;
+
+    const revelés = elements.filter(el => el.classList.contains('visible'));
+
+    if (revelés.length === 0) {
+      console.warn('AvaPartners : animations d\'apparition inopérantes — affichage de secours activé.');
+      revealEverything();
+      return;
+    }
+
+    // Rattrapage des éléments visibles à l'écran mais restés masqués.
+    elements.forEach(el => {
+      if (el.classList.contains('visible')) return;
+      const rect = el.getBoundingClientRect();
+      const dansLaFenetre = rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
+      if (dansLaFenetre) el.classList.add('visible', 'force-visible');
+    });
+  }, REVEAL_FAILSAFE_DELAY);
 }
 
 /* ==========================================================================

@@ -3,10 +3,22 @@
   "configurations": [
     {
       "name": "Static HTTP Server",
-      "runtimeExecutable": "ruby",
-      "runtimeArgs": ["-run", "-e", "httpd", "/Users/raphael/Desktop/ava-preview", "-p", "8080"],
-      "port": 8080,
-      "autoPort": true
+      "runtimeExecutable": "/bin/sleep",
+      "runtimeArgs": [
+        "3600"
+      ],
+      "port": 8080
+    },
+    {
+      "name": "AVA serve.py",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "serve.py"
+      ],
+      "env": {
+        "PORT": "8091"
+      },
+      "port": 8091
     }
   ]
 }

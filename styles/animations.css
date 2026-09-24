@@ -3,66 +3,76 @@
    ========================================================================== */
 
 /* -----------------------------------------------------------------------
+   FILET DE SÉCURITÉ
+   Les états "masqués" (opacity: 0) sont volontairement préfixés par `.js`.
+   Cette classe est posée sur <html> par un script inline dans index.html.
+
+   Conséquence : si le JavaScript est bloqué (extension, proxy, antivirus,
+   navigateur ancien...), la classe `.js` n'existe pas, donc RIEN n'est
+   masqué et le site reste entièrement lisible.
+   ----------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
    Pattern de base : .reveal + .visible
    ----------------------------------------------------------------------- */
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal.visible {
+.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Délais en cascade pour les grilles */
-.reveal:nth-child(2) { transition-delay: 0.1s; }
-.reveal:nth-child(3) { transition-delay: 0.2s; }
-.reveal:nth-child(4) { transition-delay: 0.3s; }
-.reveal:nth-child(5) { transition-delay: 0.4s; }
+.js .reveal:nth-child(2) { transition-delay: 0.1s; }
+.js .reveal:nth-child(3) { transition-delay: 0.2s; }
+.js .reveal:nth-child(4) { transition-delay: 0.3s; }
+.js .reveal:nth-child(5) { transition-delay: 0.4s; }
 
 /* Variantes de direction */
-.reveal-left {
+.js .reveal-left {
   opacity: 0;
   transform: translateX(-32px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.reveal-left.visible {
+.js .reveal-left.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-.reveal-right {
+.js .reveal-right {
   opacity: 0;
   transform: translateX(32px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.reveal-right.visible {
+.js .reveal-right.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
 /* Fade seul (sans mouvement) */
-.reveal-fade {
+.js .reveal-fade {
   opacity: 0;
   transition: opacity 0.7s ease;
 }
 
-.reveal-fade.visible {
+.js .reveal-fade.visible {
   opacity: 1;
 }
 
 /* Scale subtle */
-.reveal-scale {
+.js .reveal-scale {
   opacity: 0;
   transform: scale(0.96);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal-scale.visible {
+.js .reveal-scale.visible {
   opacity: 1;
   transform: scale(1);
 }
@@ -84,9 +94,24 @@
   .reveal-left,
   .reveal-right,
   .reveal-fade,
-  .reveal-scale {
+  .reveal-scale,
+  .js .reveal,
+  .js .reveal-left,
+  .js .reveal-right,
+  .js .reveal-fade,
+  .js .reveal-scale {
     opacity: 1;
     transform: none;
     transition: none;
   }
+}
+
+/* -----------------------------------------------------------------------
+   Secours ultime : la classe .force-visible est posée par main.js
+   au bout de 2,5 s sur tout élément resté masqué.
+   ----------------------------------------------------------------------- */
+.force-visible,
+.js .force-visible {
+  opacity: 1 !important;
+  transform: none !important;
 }
