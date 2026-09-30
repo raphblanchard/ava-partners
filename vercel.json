@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "avapartners.vercel.app" }],
+      "destination": "https://www.avapartners.fr/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "avapartners.vercel.app" }],
       "destination": "https://www.avapartners.fr/:path*",
