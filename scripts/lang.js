@@ -336,6 +336,22 @@ function renderManifesto(manifesto) {
 /* ==========================================================================
    Témoignages
    ========================================================================== */
+// Ordre aléatoire tiré une seule fois par visite : il reste identique
+// quand on change de langue (FR et EN ont les mêmes témoignages dans le même ordre)
+let _testimonialsShuffle = null;
+
+function orderTestimonials(items, pinned) {
+  const rest = items.slice(pinned);
+  if (!_testimonialsShuffle || _testimonialsShuffle.length !== rest.length) {
+    _testimonialsShuffle = rest.map((_, i) => i);
+    for (let i = _testimonialsShuffle.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [_testimonialsShuffle[i], _testimonialsShuffle[j]] = [_testimonialsShuffle[j], _testimonialsShuffle[i]];
+    }
+  }
+  return [...items.slice(0, pinned), ..._testimonialsShuffle.map(i => rest[i])];
+}
+
 function renderTestimonials(testimonials) {
   setHTML('[data-testimonials="title"]',
     `${testimonials.section_label} <em>${testimonials.section_highlight}</em>`);
@@ -343,7 +359,7 @@ function renderTestimonials(testimonials) {
   const track = document.querySelector('.slider-track');
   if (!track) return;
 
-  const items = testimonials.items;
+  const items = orderTestimonials(testimonials.items, testimonials.pinned || 0);
 
   track.innerHTML = items.map(t => `
     <div class="slide">

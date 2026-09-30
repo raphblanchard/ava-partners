@@ -224,12 +224,38 @@ export const content = {
     testimonials: {
       section_label: 'Nos clients',
       section_highlight: 't\u00e9moignent',
+      // Les 5 premiers t\u00e9moignages restent dans cet ordre, les suivants sont m\u00e9lang\u00e9s au hasard
+      pinned: 5,
       items: [
+        {
+          quote:
+            "Dans un contexte d\u2019\u00e9volution d\u2019organisation d\u2019\u00e9quipe, j\u2019ai \u00e9t\u00e9 ravie de travailler avec Alexia et Claire afin de poser les contours d\u2019une journ\u00e9e cl\u00e9 pour mon \u00e9quipe et moi-m\u00eame. Leur aide m\u2019a \u00e9t\u00e9 pr\u00e9cieuse pour poser les grandes probl\u00e9matiques de l\u2019\u00e9volution et des impacts sur mes collaborateurs, identifier les questions cl\u00e9s \u00e0 r\u00e9soudre dans le cadre du team building et faire ainsi de ce moment une \u00e9tape cl\u00e9 de l\u2019avant/apr\u00e8s. \u00c9coute, intelligence situationnelle et engagement seraient pour moi les ma\u00eetres mots de cet accompagnement.",
+          author: 'Anna Fedou',
+          role: 'Directrice commerciale et d\u00e9veloppement, Beaumier',
+        },
+        {
+          quote:
+            "Ce que j\u2019ai aim\u00e9 d\u2019Alexia et Claire est leur \u00e9coute. Elles ont pass\u00e9 beaucoup de temps \u00e0 creuser et conna\u00eetre chaque membre du comit\u00e9 de direction et nos dynamiques de Groupe avant de nous proposer un plan d\u2019action personnalis\u00e9 et adapt\u00e9 \u00e0 nos besoins. Pendant le d\u00e9roul\u00e9 j\u2019ai toujours eu un retour pr\u00e9cis et nous avons pass\u00e9 du temps \u00e0 l\u2019analyse et l\u2019ajustement si n\u00e9cessaire. Au-del\u00e0 de tout \u00e7a, le plus important sont les r\u00e9sultats. Mon comit\u00e9 de direction s\u2019est transform\u00e9 d\u2019un groupe d\u2019individus m\u00e9fiants et pas trop motiv\u00e9s \u00e0 une v\u00e9ritable \u00e9quipe, qui partage un objectif clair, avec confiance les uns dans les autres et qui \u00e9prouvent un v\u00e9ritable plaisir \u00e0 travailler ensemble.",
+          author: 'Julio Quiroga',
+          role: 'Pr\u00e9sident EMEA and LATAM, Clarins Group',
+        },
+        {
+          quote:
+            "Alexia et Claire sont anim\u00e9es par une bienveillance profonde et une authenticit\u00e9 sans d\u00e9tour. Elles savent cr\u00e9er un espace s\u00fbr, o\u00f9 chacun peut exprimer son monde en toute confiance. Leur compl\u00e9mentarit\u00e9 puissante, alli\u00e9e \u00e0 une pr\u00e9sence juste et engag\u00e9e, leur permet d\u2019accompagner le groupe avec douceur tout en osant nommer ce qui entrave\u00a0: les non-dits, les tensions, les dysfonctionnements. Sans jamais juger, elles offrent un miroir sinc\u00e8re, stimulant la prise de conscience individuelle et collective. Ce faisant, elles ouvrent le chemin vers une coh\u00e9sion plus forte, une dynamique plus saine, o\u00f9 le collectif se (re)construit dans la confiance, la responsabilit\u00e9 et la clart\u00e9.",
+          author: 'Patrick Chavanne',
+          role: 'Directeur G\u00e9n\u00e9ral, Clarins Suisse',
+        },
         {
           quote:
             "Travailler avec Alexia et Claire lors de l\u2019onboarding de l\u2019\u00e9quipe Dior Backstage Pros a \u00e9t\u00e9 une exp\u00e9rience exceptionnelle. Leur accompagnement a jou\u00e9 un r\u00f4le cl\u00e9 dans l\u2019unification du groupe autour d\u2019une mission commune, favorisant la confiance et la coh\u00e9sion. Gr\u00e2ce \u00e0 leur approche \u00e9clair\u00e9e, l\u2019\u00e9quipe a su adopter sa nouvelle mission avec clart\u00e9 et enthousiasme, posant ainsi les bases d\u2019une collaboration forte et inspirante.",
           author: 'Sharon Zarfati',
           role: 'International Head of Retail Education, DIOR Make up',
+        },
+        {
+          quote:
+            "Alexia et Claire sont intervenues au sein de notre structure \u00e0 un moment de transformation profonde\u00a0: mise en place d\u2019une nouvelle gouvernance, repositionnement strat\u00e9gique, \u00e9volution de l\u2019offre, le tout dans un contexte humain et business exigeant, apr\u00e8s 15 ans d\u2019existence. Un terrain de jeu complexe, qu\u2019elles ont su appr\u00e9hender avec une grande finesse. Elles se sont distingu\u00e9es par la justesse de leur analyse, une excellente compr\u00e9hension de notre culture d\u2019entreprise et une lecture subtile des \u00e9quilibres en place. Nous avons particuli\u00e8rement valoris\u00e9 leur capacit\u00e9 \u00e0 nous coacher en tant que bin\u00f4me de dirigeantes, avec ses forces et ses compl\u00e9mentarit\u00e9s. Alexia et Claire savent guider le collectif avec empathie mais sans complaisance, ce qui est pr\u00e9cieux et rare.",
+          author: 'Beatrice Pierrard & Fanny Ponsot',
+          role: 'DG & DGA, Agence Chic',
         },
         {
           quote:
@@ -275,27 +301,9 @@ export const content = {
         },
         {
           quote:
-            "Alexia et Claire sont anim\u00e9es par une bienveillance profonde et une authenticit\u00e9 sans d\u00e9tour. Elles savent cr\u00e9er un espace s\u00fbr, o\u00f9 chacun peut exprimer son monde en toute confiance. Leur compl\u00e9mentarit\u00e9 puissante, alli\u00e9e \u00e0 une pr\u00e9sence juste et engag\u00e9e, leur permet d\u2019accompagner le groupe avec douceur tout en osant nommer ce qui entrave\u00a0: les non-dits, les tensions, les dysfonctionnements. Sans jamais juger, elles offrent un miroir sinc\u00e8re, stimulant la prise de conscience individuelle et collective. Ce faisant, elles ouvrent le chemin vers une coh\u00e9sion plus forte, une dynamique plus saine, o\u00f9 le collectif se (re)construit dans la confiance, la responsabilit\u00e9 et la clart\u00e9.",
-          author: 'Patrick Chavanne',
-          role: 'Directeur G\u00e9n\u00e9ral, Clarins Suisse',
-        },
-        {
-          quote:
-            "Alexia et Claire sont intervenues au sein de notre structure \u00e0 un moment de transformation profonde\u00a0: mise en place d\u2019une nouvelle gouvernance, repositionnement strat\u00e9gique, \u00e9volution de l\u2019offre, le tout dans un contexte humain et business exigeant, apr\u00e8s 15 ans d\u2019existence. Un terrain de jeu complexe, qu\u2019elles ont su appr\u00e9hender avec une grande finesse. Elles se sont distingu\u00e9es par la justesse de leur analyse, une excellente compr\u00e9hension de notre culture d\u2019entreprise et une lecture subtile des \u00e9quilibres en place. Nous avons particuli\u00e8rement valoris\u00e9 leur capacit\u00e9 \u00e0 nous coacher en tant que bin\u00f4me de dirigeantes, avec ses forces et ses compl\u00e9mentarit\u00e9s. Alexia et Claire savent guider le collectif avec empathie mais sans complaisance, ce qui est pr\u00e9cieux et rare.",
-          author: 'Beatrice Pierrard & Fanny Ponsot',
-          role: 'DG & DGA, Agence Chic',
-        },
-        {
-          quote:
-            "Ce que j\u2019ai aim\u00e9 d\u2019Alexia et Claire est leur \u00e9coute. Elles ont pass\u00e9 beaucoup de temps \u00e0 creuser et conna\u00eetre chaque membre du comit\u00e9 de direction et nos dynamiques de Groupe avant de nous proposer un plan d\u2019action personnalis\u00e9 et adapt\u00e9 \u00e0 nos besoins. Pendant le d\u00e9roul\u00e9 j\u2019ai toujours eu un retour pr\u00e9cis et nous avons pass\u00e9 du temps \u00e0 l\u2019analyse et l\u2019ajustement si n\u00e9cessaire. Au-del\u00e0 de tout \u00e7a, le plus important sont les r\u00e9sultats. Mon comit\u00e9 de direction s\u2019est transform\u00e9 d\u2019un groupe d\u2019individus m\u00e9fiants et pas trop motiv\u00e9s \u00e0 une v\u00e9ritable \u00e9quipe, qui partage un objectif clair, avec confiance les uns dans les autres et qui \u00e9prouvent un v\u00e9ritable plaisir \u00e0 travailler ensemble.",
-          author: 'Julio Quiroga',
-          role: 'Pr\u00e9sident EMEA and LATAM, Clarins Group',
-        },
-        {
-          quote:
             "Ce coaching d\u2019\u00e9quipe a \u00e9t\u00e9 tr\u00e8s b\u00e9n\u00e9fique pour notre groupe de directeurs financiers. L\u2019approche compl\u00e9mentaire des deux coachs nous a permis de cr\u00e9er un environnement de confiance favorable aux \u00e9changes et \u00e0 une communication efficace. Le cadre, \u00e0 la fois s\u00e9rieux et professionnel, avec une pointe de l\u00e9g\u00e8ret\u00e9, a aid\u00e9 \u00e0 renforcer les liens et \u00e0 encourager la coop\u00e9ration. Aujourd\u2019hui, les \u00e9changes sont plus harmonieux, les bonnes pratiques sont mieux partag\u00e9es, et nous ressentons appartenir \u00e0 un r\u00e9seau solidaire. Une exp\u00e9rience aussi stimulante que productive, que je recommande vivement.",
           author: 'Cherif Rebai',
-          role: 'CFO',
+          role: 'CFO, Eiffage Concessions',
         },
         {
           quote:
@@ -542,12 +550,38 @@ export const content = {
     testimonials: {
       section_label: 'Client',
       section_highlight: 'testimonials',
+      // Les 5 premiers t\u00e9moignages restent dans cet ordre, les suivants sont m\u00e9lang\u00e9s au hasard
+      pinned: 5,
       items: [
+        {
+          quote:
+            "In the context of a significant team transformation, I was delighted to work with Alexia and Claire to shape a key milestone for both my team and myself. Their support was invaluable in helping me identify the main challenges arising from the transformation and its impact on my team, define the key questions to address during the team-building session, and ultimately turn this moment into a meaningful turning point between the \u201cbefore\u201d and the \u201cafter.\u201d Listening skills, situational intelligence, and commitment are the three qualities that best define their support.",
+          author: 'Anna Fedou',
+          role: 'Chief Commercial Officer, Beaumier',
+        },
+        {
+          quote:
+            "What I appreciated most about Alexia and Claire was their listening. They spent a great deal of time digging in and getting to know each member of the executive committee and our Group dynamics before proposing a personalised action plan tailored to our needs. Throughout the process, I always received precise feedback, and we took time for analysis and adjustment when needed. Beyond all that, the most important thing is the results. My executive committee transformed from a group of wary, not-so-motivated individuals into a real team — one that shares a clear goal, trusts one another, and genuinely enjoys working together.",
+          author: 'Julio Quiroga',
+          role: 'President EMEA and LATAM, Clarins Group',
+        },
+        {
+          quote:
+            "Alexia and Claire are driven by deep kindness and straightforward authenticity. They know how to create a safe space where everyone can express their inner world with full confidence. Their powerful complementarity, combined with a grounded and committed presence, allows them to guide the group with gentleness while daring to name what gets in the way: the unspoken, the tensions, the dysfunctions. Without ever judging, they offer a sincere mirror, stimulating individual and collective awareness. In doing so, they open the path towards stronger cohesion and a healthier dynamic, where the collective is (re)built on trust, responsibility and clarity.",
+          author: 'Patrick Chavanne',
+          role: 'General Manager, Clarins Switzerland',
+        },
         {
           quote:
             "Working with Alexia and Claire during the onboarding of the Dior Backstage Pros team was an exceptional experience. Their support played a key role in uniting the group around a shared mission, fostering trust and cohesion. Thanks to their insightful approach, the team was able to embrace its new mission with clarity and enthusiasm, laying the foundations for a strong and inspiring collaboration.",
           author: 'Sharon Zarfati',
           role: 'International Head of Retail Education, DIOR Make up',
+        },
+        {
+          quote:
+            "Alexia and Claire stepped in during a moment of profound transformation: new governance, strategic repositioning, service offering evolution — all within a demanding human and business context, after 15 years of existence. A complex playing field, which they navigated with great finesse. They stood out for the accuracy of their analysis, an excellent understanding of our company culture, and a subtle reading of the existing balances. We particularly valued their ability to coach us as a leadership duo, with its strengths and complementarities. Alexia and Claire know how to guide the collective with empathy but without complacency — which is precious and rare.",
+          author: 'Beatrice Pierrard & Fanny Ponsot',
+          role: 'CEO & Deputy CEO, Agence Chic',
         },
         {
           quote:
@@ -593,27 +627,9 @@ export const content = {
         },
         {
           quote:
-            "Alexia and Claire are driven by deep kindness and straightforward authenticity. They know how to create a safe space where everyone can express their inner world with full confidence. Their powerful complementarity, combined with a grounded and committed presence, allows them to guide the group with gentleness while daring to name what gets in the way: the unspoken, the tensions, the dysfunctions. Without ever judging, they offer a sincere mirror, stimulating individual and collective awareness. In doing so, they open the path towards stronger cohesion and a healthier dynamic, where the collective is (re)built on trust, responsibility and clarity.",
-          author: 'Patrick Chavanne',
-          role: 'General Manager, Clarins Switzerland',
-        },
-        {
-          quote:
-            "Alexia and Claire stepped in during a moment of profound transformation: new governance, strategic repositioning, service offering evolution — all within a demanding human and business context, after 15 years of existence. A complex playing field, which they navigated with great finesse. They stood out for the accuracy of their analysis, an excellent understanding of our company culture, and a subtle reading of the existing balances. We particularly valued their ability to coach us as a leadership duo, with its strengths and complementarities. Alexia and Claire know how to guide the collective with empathy but without complacency — which is precious and rare.",
-          author: 'Beatrice Pierrard & Fanny Ponsot',
-          role: 'CEO & Deputy CEO, Agence Chic',
-        },
-        {
-          quote:
-            "What I appreciated most about Alexia and Claire was their listening. They spent a great deal of time digging in and getting to know each member of the executive committee and our Group dynamics before proposing a personalised action plan tailored to our needs. Throughout the process, I always received precise feedback, and we took time for analysis and adjustment when needed. Beyond all that, the most important thing is the results. My executive committee transformed from a group of wary, not-so-motivated individuals into a real team — one that shares a clear goal, trusts one another, and genuinely enjoys working together.",
-          author: 'Julio Quiroga',
-          role: 'President EMEA and LATAM, Clarins Group',
-        },
-        {
-          quote:
             "This team coaching was very beneficial for our group of finance directors. The complementary approach of the two coaches allowed us to create a climate of trust conducive to open exchanges and effective communication. The setting — serious and professional, with a touch of lightness — helped strengthen bonds and encourage cooperation. Today, exchanges are more harmonious, best practices are better shared, and we feel we belong to a supportive network. A stimulating and productive experience that I highly recommend.",
           author: 'Cherif Rebai',
-          role: 'CFO',
+          role: 'CFO, Eiffage Concessions',
         },
         {
           quote:
